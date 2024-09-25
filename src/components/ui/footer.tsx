@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white p-6 mt-10">
       {/* グリッドレイアウトを使用してセクションを配置 */}
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 items-center max-w-5xl">
+      <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 items-center max-w-5xl px-4">
         {/* 左セクション */}
         <div className="flex flex-col items-start">
           {/* アイコンと会社名 */}
