@@ -1,22 +1,29 @@
 'use client';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/autoplay';
-import Image from 'next/image';
-import SwiperCore, { Autoplay } from 'swiper';
 
-// Swiperモジュールの使用を宣言
-SwiperCore.use([Autoplay]);
+// 修正版 hero.tsx
+import { useEffect } from 'react'; // useEffectのインポートを忘れずに　デバッグ用
+import { Swiper, SwiperSlide } from 'swiper/react'; // SwiperとSwiperSlideを正しくインポート
+import 'swiper/css'; // Swiperの基本CSSをインポート
+import 'swiper/css/autoplay'; // Autoplay用のCSSをインポート
+import { Autoplay, Pagination } from 'swiper/modules'; // AutoplayとPaginationモジュールをインポート
+import Image from 'next/image';
+
 
 const Hero = () => {
+  // useEffectフックを追加して、Swiperが正しくインポートされているか確認
+  useEffect(() => {
+    console.log(Swiper); // Swiperインスタンスが正しく表示されるか確認
+  }, []);
+  
   return (
     <div className="relative w-full overflow-hidden" style={{ height: '500px' }}>
       <Swiper
+        modules={[Autoplay, Pagination]} // AutoplayとPaginationを有効化
         className="absolute top-0 left-0 w-full h-full"
         spaceBetween={0}
         slidesPerView={1}
         loop={true}
-        autoplay={{ delay: 8000 }} // 6秒ごとにスライド
+        autoplay={{ delay: 6000, disableOnInteraction: false }} // 数秒ごとにスライド
         speed={2500}
         effect="slide" // スライド効果を指定
       >
