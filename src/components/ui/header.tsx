@@ -39,8 +39,8 @@ export default function Header() {
             <Image
               src="/images/header/yamazemi_logo_celeste.png"
               alt="山本勲研究会ロゴ"
-              width={40}
-              height={40}
+              width={35}
+              height={35}
               className={`mr-2 transform transition-transform duration-300 ease-in-out ${
                 menuOpen ? 'scale-90' : 'scale-100'
               }`}
