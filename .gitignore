@@ -39,3 +39,6 @@ next-env.d.ts
 
 # Exclude images
 /public/images/
+
+collect_design_code.sh
+design_code.txt
