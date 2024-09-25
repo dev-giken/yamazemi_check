@@ -66,7 +66,7 @@ export default function Header() {
         </div>
         <div className="sm:hidden flex items-center">
           <button onClick={toggleMenu} className="focus:outline-none z-20">
-            <div className="flex flex-col justify-between w-7 h-5">
+            <div className="flex flex-col justify-between w-6 h-5">
               <span
                 className={`block h-0.5 bg-white transform transition duration-500 ease-in-out ${
                   menuOpen ? 'rotate-45 translate-y-1.5' : ''
