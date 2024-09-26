@@ -59,6 +59,7 @@ const Hero = () => {
       </Swiper>
 
       <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white text-center" style={{ zIndex: 10 }}>
+        <h1><br /><br /></h1>
         <h1 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6">慶應義塾大学商学部 山本勲研究会</h1>
         <h2 className="text-3xl sm:text-6xl font-bold mb-4 sm:mb-6">『山ゼミ』</h2>
         <p className="text-sm sm:text-1xl mb-8 sm:mb-12">計量経済学をツールに総合力を身につける</p>
