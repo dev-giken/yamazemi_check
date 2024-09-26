@@ -32,7 +32,7 @@ export default function Header() {
           isTop
             ? 'top-0 left-0 w-full rounded-none py-3 sm:py-4' // デフォルトの高さ
             : 'top-2 sm:top-4 left-1/2 w-11/12 rounded-xl transform -translate-x-1/2 py-2 sm:py-3'
-        } ${menuOpen ? 'py-2' : 'py-3'}`}  // バーガーメニューが出現時の高さ調整
+        } ${menuOpen ? 'py-2' : 'py-2'}`}  // バーガーメニューが出現時の高さ調整
       >
         <nav className="container mx-auto flex justify-between items-center px-4">
           <div className="flex items-center">

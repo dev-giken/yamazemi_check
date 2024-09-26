@@ -14,7 +14,7 @@ const Hero = () => {
   }, []);
   
   return (
-    <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16/9' }}> {/* 縦横比を固定 */}
+    <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16/11' }}> {/* 縦横比を固定 */}
       <Swiper
         modules={[Autoplay, Pagination]} // AutoplayとPaginationを有効化
         className="absolute top-0 left-0 w-full h-full"
