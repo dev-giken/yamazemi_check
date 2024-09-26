@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image"; // アイコンを使用するためにインポート
-import { FacebookIcon, TwitterIcon, InstagramIcon } from "lucide-react"; // ソーシャルメディアアイコン
+import SocialIcons from "./SocialIcons"; // SocialIconsコンポーネントをインポート
 
 const Footer = () => {
   return (
@@ -21,17 +21,25 @@ const Footer = () => {
             <span className="text-lg sm:text-2xl font-bold">山本勲研究会</span>
           </div>
 
-          {/* ナビゲーションリンク（左詰め） */}
+          {/* ナビゲーションリンク（左詰めで縦並び） */}
           <div className="flex flex-col text-xs">
             <Link href="/about" className="hover:underline mb-2">
               山ゼミとは
             </Link>
+            <Link href="/activities" className="hover:underline mb-2">
+              活動紹介
+            </Link>
+            <Link href="/application" className="hover:underline mb-2">
+              入ゼミ
+            </Link>
             <Link href="/contact" className="hover:underline mb-2">
               お問い合わせ
             </Link>
-            <Link href="/privacy" className="hover:underline">
-              プライバシーポリシー
-            </Link>
+            <div className="mt-4"> {/* 少し行間を空けてからプライバシーポリシーを表示 */}
+              <Link href="/privacy" className="hover:underline">
+                プライバシーポリシー
+              </Link>
+            </div>
           </div>
         </div>
 
@@ -40,33 +48,8 @@ const Footer = () => {
 
         {/* 右セクション */}
         <div className="flex justify-center">
-          {/* SNSアイコン（中央揃え） */}
-          <div className="flex space-x-4">
-            <Link
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-            >
-              <FacebookIcon className="w-5 h-5 sm:w-6 sm:h-6 hover:text-gray-400" />
-            </Link>
-            <Link
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter"
-            >
-              <TwitterIcon className="w-5 h-5 sm:w-6 sm:h-6 hover:text-gray-400" />
-            </Link>
-            <Link
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-            >
-              <InstagramIcon className="w-5 h-5 sm:w-6 sm:h-6 hover:text-gray-400" />
-            </Link>
-          </div>
+          {/* SNSアイコン（SocialIconsコンポーネントを使用） */}
+          <SocialIcons /> {/* ここでSNSアイコンを表示 */}
         </div>
       </div>
 
