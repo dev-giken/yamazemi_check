@@ -30,7 +30,7 @@ export const metadata = {
     description: "計量経済学をツールに総合力を身につける",
     images: [
       {
-        url: "/images/seminar_square_logo.png",
+        url: "/public/images/seminar_square_logo.png",
         alt: "山本勲研究会",
       },
     ],
