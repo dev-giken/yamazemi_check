@@ -29,7 +29,7 @@ export const SeoHead = ({
       <meta name="description" content={description} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
-      <link rel="icon" type="image/svg+xml" href={"/samplelogo.svg"} />
+      <link rel="icon" type="image/png" href={"/images/seminar_square_logo.png"} />
     </Head>
   );
 };
