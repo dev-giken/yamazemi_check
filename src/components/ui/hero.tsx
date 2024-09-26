@@ -51,7 +51,7 @@ const Hero = () => {
         <SwiperSlide>
           <div style={{ position: 'relative', width: '100%', height: '100%' }}>
             <Image
-              src="/images/hero/deleteThis.jpg"
+              src="/images/hero/summer_camp.jpg"
               alt="Image 3"
               fill
               style={{ objectFit: 'cover' }}
