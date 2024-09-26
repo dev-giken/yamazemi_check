@@ -1,13 +1,11 @@
 'use client';
 
-// 修正版 hero.tsx
-import { useEffect } from 'react'; // useEffectのインポートを忘れずに　デバッグ用
+import { useEffect } from 'react'; // useEffectのインポートを忘れずに デバッグ用
 import { Swiper, SwiperSlide } from 'swiper/react'; // SwiperとSwiperSlideを正しくインポート
 import 'swiper/css'; // Swiperの基本CSSをインポート
 import 'swiper/css/autoplay'; // Autoplay用のCSSをインポート
 import { Autoplay, Pagination } from 'swiper/modules'; // AutoplayとPaginationモジュールをインポート
 import Image from 'next/image';
-
 
 const Hero = () => {
   // useEffectフックを追加して、Swiperが正しくインポートされているか確認
@@ -16,7 +14,7 @@ const Hero = () => {
   }, []);
   
   return (
-    <div className="relative w-full overflow-hidden" style={{ height: '500px' }}>
+    <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16/9' }}> {/* 縦横比を固定 */}
       <Swiper
         modules={[Autoplay, Pagination]} // AutoplayとPaginationを有効化
         className="absolute top-0 left-0 w-full h-full"
