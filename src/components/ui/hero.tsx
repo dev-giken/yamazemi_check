@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect } from 'react'; // useEffectのインポートを忘れずに デバッグ用
+// 修正版 hero.tsx
+import { useEffect } from 'react'; // useEffectのインポートを忘れずに　デバッグ用
 import { Swiper, SwiperSlide } from 'swiper/react'; // SwiperとSwiperSlideを正しくインポート
 import 'swiper/css'; // Swiperの基本CSSをインポート
 import 'swiper/css/autoplay'; // Autoplay用のCSSをインポート
@@ -8,13 +9,12 @@ import { Autoplay, Pagination } from 'swiper/modules'; // AutoplayとPagination�
 import Image from 'next/image';
 
 const Hero = () => {
-  // useEffectフックを追加して、Swiperが正しくインポートされているか確認
   useEffect(() => {
     console.log(Swiper); // Swiperインスタンスが正しく表示されるか確認
   }, []);
-  
+
   return (
-    <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16/11' }}> {/* 縦横比を固定 */}
+    <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16/11' }}>
       <Swiper
         modules={[Autoplay, Pagination]} // AutoplayとPaginationを有効化
         className="absolute top-0 left-0 w-full h-full"
@@ -59,9 +59,10 @@ const Hero = () => {
       </Swiper>
 
       <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white text-center" style={{ zIndex: 10 }}>
-        <h1 className="text-4xl font-bold mb-4">Welcome to Yamazemi</h1>
-        <p className="text-lg mb-8">Discover our activities</p>
-        <button className="bg-white text-black px-4 py-2 rounded">Get Started</button>
+        <h1 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6">慶應義塾大学商学部 山本勲研究会</h1>
+        <h2 className="text-3xl sm:text-6xl font-bold mb-4 sm:mb-6">『山ゼミ』</h2>
+        <p className="text-sm sm:text-1xl mb-8 sm:mb-12">計量経済学をツールに総合力を身につける</p>
+        <button className="bg-white text-black px-4 py-2 rounded">ゼミ員ブログ</button>
       </div>
     </div>
   );

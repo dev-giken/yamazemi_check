@@ -14,7 +14,7 @@ type NewsSectionProps = {
 const NewsSection: React.FC<NewsSectionProps> = ({ newsItems }) => {
   return (
     <section className="w-2/3 mx-auto mt-16 p-4">
-      <h2 className="text-2xl font-bold mb-4">お知らせ・ニュース</h2>
+      <h2 className="text-2xl sm:text-4xl font-bold mb-4">お知らせ・ニュース</h2>
       <ul>
         {newsItems.map((item) => (
           <li key={item.id} className="mb-2 flex space-x-4 items-center">
