@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import Hero from "@/components/ui/hero";
 import NewsSection from '@/components/ui/NewsSection';
 import { client } from "@/lib/client";
+import { SeoHead } from "@/components/seoHead";
+import styles from "@/styles/Home.module.css";
 
 export default async function Home() {
   const data = await client.get({ endpoint: 'news' });
@@ -13,8 +15,17 @@ export default async function Home() {
     category: item.category,
   }));
 
+  const pageOgImg: string = `${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}`;
+
   return (
     <>
+      <SeoHead
+        title={"Home"}
+        titleTemplate={"慶應義塾大学商学部山本勲研究会"}
+        description={"山ゼミ | 計量経済学をツールに総合力を身につける"}
+        ogType={"website"}
+        imgUrl={`${pageOgImg}/images/seminar_square_logo.png`} 
+      />
       <main className="flex min-h-screen flex-col items-center justify-between">
         <Hero />
         <NewsSection newsItems={newsItems} />
