@@ -60,10 +60,10 @@ const Hero = () => {
 
       <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white text-center" style={{ zIndex: 10 }}>
         <h1><br /><br /></h1>
-        <h1 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6">慶應義塾大学商学部 山本勲研究会</h1>
-        <h2 className="text-3xl sm:text-6xl font-bold mb-4 sm:mb-6">『山ゼミ』</h2>
-        <p className="text-sm sm:text-1xl mb-8 sm:mb-12">計量経済学をツールに総合力を身につける</p>
-        <button className="bg-white text-black px-4 py-2 rounded">ゼミ員ブログ</button>
+        <h1 className="text-1xl sm:text-3xl font-bold mb-4 sm:mb-6">慶應義塾大学商学部 山本勲研究会</h1>
+        <h2 className="text-[32px] sm:text-6xl font-bold mb-4 sm:mb-6">『山ゼミ』</h2>
+        <p className="text-xs sm:text-[15px] mb-8 sm:mb-12">計量経済学をツールに総合力を身につける</p>
+        <button className="text-[10px] sm:text-sm bg-white text-black px-2 py-2 rounded">ゼミ員ブログ</button>
       </div>
     </div>
   );
