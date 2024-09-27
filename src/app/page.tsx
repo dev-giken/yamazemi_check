@@ -41,7 +41,7 @@ export default async function Home() {
         </div>
         <div className="flex flex-col items-center justify-between">
           <NewsSection newsItems={newsItems} />
-          <div className="flex justify-center items-center p-36">
+          <div className="flex justify-center items-center h-screen p-36">
             <Button>準備中</Button>
           </div>
         </div>
