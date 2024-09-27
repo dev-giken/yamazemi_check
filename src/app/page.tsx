@@ -19,14 +19,6 @@ export default async function Home() {
 
   return (
     <>
-      <SeoHead
-        title="慶應義塾大学商学部 山本勲研究会"
-        description="山ゼミ | 計量経済学をツールに総合力を身につける"
-        ogType="website"
-        imgUrl="/images/seminar_square_logo.png"  // Path to your image
-        url="https://www.yamazemi.info"  // Update with your actual site URL
-      />
-
       <main>
         <div className="flex flex-col items-center justify-between">
           <Hero />

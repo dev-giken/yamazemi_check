@@ -14,15 +14,15 @@ const Footer = () => {
             <Image
               src="/images/header/yamazemi_logo_celeste.png" // 画像のパス
               alt="アイコン"
-              width={45} // 必要に応じてサイズを調整
-              height={45}
+              width={35}
+              height={35}
               className="mr-2"
             />
-            <Link href="/" className="text-lg sm:text-2xl font-bold">山本勲研究会</Link>
+            <Link href="/" className="text-[16px] sm:text-2xl font-bold">山本勲研究会</Link>
           </div>
 
           {/* ナビゲーションリンク（左詰めで縦並び） */}
-          <div className="flex flex-col text-xs">
+          <div className="flex flex-col text-[8px] sm:text-xs">
             <Link href="/about" className="hover:underline mb-2">
               山ゼミとは
             </Link>
@@ -54,7 +54,7 @@ const Footer = () => {
       </div>
 
       {/* フッターのボトムセクション */}
-      <div className="mt-4 text-center text-xs sm:text-sm">
+      <div className="mt-4 text-center text-[8px] sm:text-xs">
         © 山本勲研究会. All rights reserved.
       </div>
     </footer>

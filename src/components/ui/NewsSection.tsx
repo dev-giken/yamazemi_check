@@ -15,7 +15,7 @@ type NewsSectionProps = {
 const NewsSection: React.FC<NewsSectionProps> = ({ newsItems }) => {
   return (
     <section className="w-4/5 sm:w-2/3 mx-auto mt-2 p-4">
-      <h2 className="text-[18px] sm:text-2xl font-bold mb-4 hidden sm:block">お知らせ</h2>
+      <h3 className="text-[18px] sm:text-2xl font-bold mb-4 hidden sm:block">お知らせ</h3>
       {/* Accordionを追加 */}
       <Accordion type="single" collapsible className="sm:hidden">
         <AccordionItem value="news">
