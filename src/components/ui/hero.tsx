@@ -5,6 +5,7 @@ import { useEffect } from 'react'; // useEffectのインポートを忘れずに
 import { Swiper, SwiperSlide } from 'swiper/react'; // SwiperとSwiperSlideを正しくインポート
 import 'swiper/css'; // Swiperの基本CSSをインポート
 import 'swiper/css/autoplay'; // Autoplay用のCSSをインポート
+import 'swiper/swiper-bundle.css';
 import { Autoplay, Pagination } from 'swiper/modules'; // AutoplayとPaginationモジュールをインポート
 import Image from 'next/image';
 
