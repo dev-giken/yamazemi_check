@@ -78,3 +78,8 @@ label {
   top: 0;
   margin-bottom: 4px; /* ラベルとテキストボックスの間に余白を確保 */
 }
+
+.category-text {
+  white-space: nowrap; /* テキストを改行させない */
+  word-break: keep-all; /* 単語を途中で改行させない */
+}

@@ -32,7 +32,7 @@ export default async function Home() {
           <Hero />
         </div>
         <div className="w-full py-3 px-10">
-          <BreadcrumbList className="flex items-center text-gray-500 text-[10px]">
+          <BreadcrumbList className="flex text-gray-500 text-[10px]">
             <BreadcrumbItem>
               <BreadcrumbPage>ホーム</BreadcrumbPage>
             </BreadcrumbItem>
@@ -41,7 +41,7 @@ export default async function Home() {
         </div>
         <div className="flex flex-col items-center justify-between">
           <NewsSection newsItems={newsItems} />
-          <div className="flex justify-center items-center h-screen p-14">
+          <div className="flex justify-center items-center p-36">
             <Button>準備中</Button>
           </div>
         </div>
