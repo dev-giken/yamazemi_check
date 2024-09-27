@@ -1,4 +1,3 @@
-import { SeoHead } from "@/components/seoHead";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import Hero from "@/components/ui/hero";
