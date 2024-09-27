@@ -18,7 +18,7 @@ const Footer = () => {
               height={45}
               className="mr-2"
             />
-            <span className="text-lg sm:text-2xl font-bold">山本勲研究会</span>
+            <Link href="/" className="text-lg sm:text-2xl font-bold">山本勲研究会</Link>
           </div>
 
           {/* ナビゲーションリンク（左詰めで縦並び） */}
