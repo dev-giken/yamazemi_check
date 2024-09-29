@@ -8,8 +8,8 @@ const inter = Inter({ subsets: ["latin"] });
 export async function generateMetadata() {
   const defaultUrl = "https://www.yamazemi.info";
   const defaultImage = "/images/seminar_square_logo.webp";
-  const title = "慶應義塾大学商学部 山本勲研究会";
-  const description = "山ゼミ | 計量経済学をツールに総合力を身につける";
+  const title = "山本勲研究会 | 公式ホームページ";
+  const description = "慶應義塾大学商学部設置 | 『計量経済学をツールに総合力を身につける』\n-山ゼミに関する全ての情報がここに！ゼミ員ブログも！";
 
   return {
     title,
