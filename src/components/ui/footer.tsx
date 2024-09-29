@@ -22,7 +22,7 @@ const Footer = () => {
           </div>
 
           {/* ナビゲーションリンク（左詰めで縦並び） */}
-          <div className="flex flex-col text-[8px] sm:text-xs">
+          <div className="flex flex-col text-[10px] sm:text-xs">
             <Link href="/about" className="hover:underline mb-2">
               山ゼミとは
             </Link>
