@@ -48,7 +48,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ja">
       <head>
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.webp" />
+        <link rel="icon" href="images/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="images/apple-icon.webp" />
         <link rel="icon" type="image/webp" sizes="32x32" href="images/favicon-32x32.webp" />
         <link rel="icon" type="image/webp" sizes="16x16" href="images/favicon-16x16.webp" />
         <link rel="manifest" href="/site.webmanifest" />
