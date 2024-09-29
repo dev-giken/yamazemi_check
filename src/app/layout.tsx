@@ -53,6 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" type="image/webp" sizes="32x32" href="images/favicon-32x32.webp" />
         <link rel="icon" type="image/webp" sizes="16x16" href="images/favicon-16x16.webp" />
         <link rel="manifest" href="/site.webmanifest" />
+        <link rel="canonical" href="https://www.yamazemi.info" />
       </head>
       <body className={inter.className}>
         <Header />
