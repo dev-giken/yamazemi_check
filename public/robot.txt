@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.yamazemi.info
+
+# Sitemaps
+Sitemap: https://www.yamazemi.info/sitemap.xml
