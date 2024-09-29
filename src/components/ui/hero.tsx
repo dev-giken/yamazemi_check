@@ -44,6 +44,7 @@ const Hero = () => {
               alt="Image 2"
               fill
               style={{ objectFit: 'cover' }}
+              loading="lazy"
             />
           </div>
         </SwiperSlide>
@@ -54,6 +55,7 @@ const Hero = () => {
               alt="Image 3"
               fill
               style={{ objectFit: 'cover' }}
+              loading="lazy"
             />
           </div>
         </SwiperSlide>

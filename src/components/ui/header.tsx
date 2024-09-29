@@ -38,7 +38,7 @@ export default function Header() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image
-                src="/images/header/yamazemi_logo_celeste.png"
+                src="/images/header/yamazemi_logo_celeste.webp"
                 alt="山本勲研究会ロゴ"
                 width={35}
                 height={35}

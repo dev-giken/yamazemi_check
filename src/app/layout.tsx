@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export async function generateMetadata() {
   const defaultUrl = "https://www.yamazemi.info";
-  const defaultImage = "/images/seminar_square_logo.png";
+  const defaultImage = "/images/seminar_square_logo.webp";
   const title = "慶應義塾大学商学部 山本勲研究会";
   const description = "山ゼミ | 計量経済学をツールに総合力を身につける";
 
@@ -48,9 +48,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ja">
       <head>
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.webp" />
+        <link rel="icon" type="image/webp" sizes="32x32" href="images/favicon-32x32.webp" />
+        <link rel="icon" type="image/webp" sizes="16x16" href="images/favicon-16x16.webp" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className={inter.className}>

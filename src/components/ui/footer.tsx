@@ -12,7 +12,7 @@ const Footer = () => {
           {/* アイコンと会社名 */}
           <div className="flex items-center mb-4">
             <Image
-              src="/images/header/yamazemi_logo_celeste.png" // 画像のパス
+              src="/images/header/yamazemi_logo_celeste.webp" // 画像のパス
               alt="アイコン"
               width={35}
               height={35}
