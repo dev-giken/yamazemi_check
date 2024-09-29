@@ -10,10 +10,6 @@ import { Autoplay, Pagination } from 'swiper/modules'; // AutoplayとPagination�
 import Image from 'next/image';
 
 const Hero = () => {
-  useEffect(() => {
-    console.log(Swiper); // Swiperインスタンスが正しく表示されるか確認
-  }, []);
-
   return (
     <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16/11' }}>
       <Swiper
