@@ -1,0 +1,93 @@
+/* styles/ArticleContent.module.css */
+
+.articleContent {
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* 見出しのスタイル */
+.articleContent h1 {
+    font-size: 26px;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem; /* 次の行との間に少し余白 */
+    font-weight: bold;
+}
+
+.articleContent h2 {
+    font-size: 18px; /* h2の大きさを基準に設定 */
+    margin-top: 1.2rem; /* 少し余白を減らす */
+    margin-bottom: 0.3rem; /* 次の行との間に少し余白 */
+    font-weight: bold;
+    background-color: #f0f0f0; /* 薄い灰色の背景 */
+    width: 100%; /* 横幅マックス */
+    padding: 0.2rem 0.5rem; /* 上下の余白を少なくする */
+}
+
+.articleContent h3 {
+    font-size: 18px;
+    margin-top: 1.5rem;
+    margin-bottom: 0.3rem; /* 次の行との間に少し余白 */
+    font-weight: bold;
+}
+
+.articleContent h4 {
+    font-size: 16px;
+    margin-top: 1.2rem;
+    margin-bottom: 0.3rem; /* 次の行との間に少し余白 */
+    font-weight: bold;
+}
+
+/* 段落のスタイル */
+.articleContent p {
+    margin-bottom: 1.2rem;
+    font-size: 12px; /* 段落のフォントサイズを調整 */
+}
+
+/* 番号付きリストのスタイル */
+.articleContent ol {
+    list-style-type: decimal;
+    list-style-position: inside;
+    margin-left: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+
+/* 順不同リストのスタイル */
+.articleContent ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    margin-left: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+
+/* リンクのスタイル */
+.articleContent a {
+    color: #0066cc; /* リンクの色 */
+    text-decoration: underline;
+}
+
+/* 強調表示のスタイル */
+.articleContent strong {
+    font-weight: bold; /* 太文字の設定 */
+}
+
+/* 斜体のスタイル */
+.articleContent em {
+    font-style: italic; /* 斜体の設定 */
+}
+
+/* キャプションのスタイル */
+.articleContent figcaption {
+    font-size: 10px; /* フォントサイズを4px減少 */
+    font-style: italic;
+    text-align: right; /* 右揃え */
+    margin-top: 0.5rem; /* figcaptionの前に少し余白 */
+    margin-bottom: 1rem; /* 次の行との間に少し余白 */
+}
+
+/* 区切り線のスタイル */
+.articleContent hr {
+    margin-top: 1.5rem; /* hrの手前の行との間に少し余白 */
+    margin-bottom: 1.5rem; /* hrの後ろの行との間に少し余白 */
+    border: 0;
+    border-top: 1px solid #ccc;
+}
