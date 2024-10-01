@@ -131,3 +131,9 @@
 .AboutProfessor tr:nth-child(even) {
     background-color: #fafafa;
 }
+
+/* 教授の画像の中央揃え */
+.AboutProfessor img {
+    display: block;
+    margin: 0 auto; /* 画像を中央に配置 */
+}
