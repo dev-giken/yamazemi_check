@@ -27,7 +27,7 @@ const Hero = () => {
         <SwiperSlide>
           <div style={{ position: 'relative', width: '100%', height: '100%' }}>
             <Image
-              src="/images/hero/both3rd4th.jpg"
+              src="/images/hero/both3rd4th.webp"
               alt="Image 1"
               fill
               style={{ objectFit: 'cover', maxWidth: '100%' }} // 最大幅を設定し、拡大を制限
@@ -38,22 +38,22 @@ const Hero = () => {
         <SwiperSlide>
           <div style={{ position: 'relative', width: '100%', height: '100%' }}>
             <Image
-              src="/images/hero/only3rd.jpg"
+              src="/images/hero/only3rd.webp"
               alt="Image 2"
               fill
               style={{ objectFit: 'cover', maxWidth: '100%' }}
-              priority // 画像を優先的に読み込むように設定
+              loading='lazy'
             />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div style={{ position: 'relative', width: '100%', height: '100%' }}>
             <Image
-              src="/images/hero/summer_camp.jpg"
+              src="/images/hero/summer_camp.webp"
               alt="Image 3"
               fill
               style={{ objectFit: 'cover', maxWidth: '100%' }}
-              priority
+              loading='lazy'
             />
           </div>
         </SwiperSlide>
