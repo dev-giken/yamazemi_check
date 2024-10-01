@@ -1,12 +1,16 @@
 'use client';
 
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion_my";
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, NavigationMenuTrigger, NavigationMenuContent } from "@/components/ui/navigation-menu";
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isTop, setIsTop] = useState(true);
+  const [openAccordion, setOpenAccordion] = useState<string>("");
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -23,6 +27,10 @@ export default function Header() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const handleAccordionChange = (value: string | null) => {
+    setOpenAccordion(value  || "");
+  };
 
   return (
     <>
@@ -50,20 +58,103 @@ export default function Header() {
             </Link>
           </div>
           {/* 画面サイズが大きい時に直接表示されるリンク */}
-          <div className="hidden sm:flex space-x-4">
-            <Link href="/about" className="hover:underline">
-              山ゼミとは
-            </Link>
-            <Link href="/activities" className="hover:underline">
-              活動紹介
-            </Link>
-            <Link href="/application" className="hover:underline">
-              入ゼミ
-            </Link>
-            <Link href="/contact" className="hover:underline">
-              お問い合わせ
-            </Link>
-          </div>
+          <NavigationMenu className="hidden sm:flex space-x-4 text-sm">
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200">ゼミ員</NavigationMenuTrigger>
+                <NavigationMenuContent className="bg-gray-800 text-white p-4 rounded-md shadow-md" style={{ width: '16rem' }}>
+                  <ul className="flex flex-col space-y-2">
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link href="/about/students" className="block w-[80%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
+                          学生紹介
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link href="/about/professor" className="block w-[80%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
+                          教授紹介
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200">活動</NavigationMenuTrigger>
+                <NavigationMenuContent className="bg-gray-800 text-white p-4 rounded-md shadow-md" style={{ width: '16rem' }}>
+                  <ul className="flex flex-col space-y-2">
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link href="/activities/year" className="block w-[80%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
+                          年間の活動
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link href="/activities/mitaron" className="block w-[80%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
+                          三田論
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link href="/activities/ws" className="block w-[80%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
+                          WS
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link href="/activities/obog" className="block w-[80%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
+                          OB/OGとの関わり
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200">入ゼミ</NavigationMenuTrigger>
+                <NavigationMenuContent className="bg-gray-800 text-white p-4 rounded-md shadow-md" style={{ width: '16rem' }}>
+                  <ul className="flex flex-col space-y-2 text-left">
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link href="/application/entry" className="block w-[80%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
+                          エントリー
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link href="/application/exam" className="block w-[80%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
+                          試験概要
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link href="/application/docs" className="block w-[80%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
+                          説明会資料・先生インタビュー
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link href="/contact" className="bg-gray-800 text-white hover:bg-gray-700 p-2 rounded transition-colors duration-200">
+                    お問い合わせ
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+
+
           {/* バーガーメニュー */}
           <div className="sm:hidden flex items-center z-60 relative">
             <button onClick={toggleMenu} className="focus:outline-none z-60 relative">
@@ -96,28 +187,93 @@ export default function Header() {
         }`}
         style={{ paddingTop: '80px', borderBottomLeftRadius: '20px' }} // 左下角に丸みを追加
       >
-        <ul className="flex flex-col space-y-2 text-sm">
-          <li>
-            <Link href="/about" onClick={toggleMenu}>
-              山ゼミとは
-            </Link>
-          </li>
-          <li>
-            <Link href="/activities" onClick={toggleMenu}>
-              活動紹介
-            </Link>
-          </li>
-          <li>
-            <Link href="/application" onClick={toggleMenu}>
-              入ゼミ
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" onClick={toggleMenu}>
-              お問い合わせ
-            </Link>
-          </li>
-        </ul>
+        <Accordion type="single" collapsible value={openAccordion ?? undefined} onValueChange={handleAccordionChange}>
+          <ul className="flex flex-col text-sm">
+            <li>
+              <AccordionItem value="student-info">
+                <AccordionTrigger>
+                  ゼミ員
+                </AccordionTrigger>
+                <AccordionContent>
+                  <ul className="pl-4 space-y-2">
+                    <li>
+                      <Link href="/about/students" onClick={toggleMenu}>
+                        学生紹介
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/about/professor" onClick={toggleMenu}>
+                        教授紹介
+                      </Link>
+                    </li>
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+            </li>
+            <li>
+              <AccordionItem value="activities">
+                <AccordionTrigger>
+                  活動
+                </AccordionTrigger>
+                <AccordionContent>
+                  <ul className="pl-4 space-y-2">
+                    <li>
+                      <Link href="/activities/year" onClick={toggleMenu}>
+                        年間の活動
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/activities/mitaron" onClick={toggleMenu}>
+                        三田論
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/activities/ws" onClick={toggleMenu}>
+                        WS
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/activities/obog" onClick={toggleMenu}>
+                        OB/OGとの関わり
+                      </Link>
+                    </li>
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+            </li>
+            <li>
+              <AccordionItem value="application">
+                <AccordionTrigger>
+                  入ゼミ
+                </AccordionTrigger>
+                <AccordionContent>
+                  <ul className="pl-4 space-y-2">
+                    <li>
+                      <Link href="/application/entry" onClick={toggleMenu}>
+                        エントリー
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/application/exam" onClick={toggleMenu}>
+                        試験概要
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/application/docs" onClick={toggleMenu}>
+                        説明会資料・先生インタビュー
+                      </Link>
+                    </li>
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+            </li>
+            <li>
+              <Link href="/contact" onClick={toggleMenu}>
+                お問い合わせ
+              </Link>
+            </li>
+          </ul>
+        </Accordion>
       </div>
     </>
   );

@@ -59,7 +59,7 @@ export default async function Home() {
         </div>
         <div className="flex flex-col items-center justify-between">
           <NewsSection newsItems={newsItems} />
-          <div className="p-10 text-xs">
+          <div className="p-8 text-xs">
             {mainItems
               .filter((item: MainContent) => {
                 console.log(item);
@@ -69,7 +69,7 @@ export default async function Home() {
                 console.log("Mapping item:", item);
                 return (
                   <div key={item.id}>
-                    {/*<h3>{item.title}</h3>*/}
+                    <h3 className="font-bold text-xl">{item.title}</h3>
                     <div className={styles.articleContent}>
                       <div dangerouslySetInnerHTML={{ __html: item.contents }} />
                     </div>
