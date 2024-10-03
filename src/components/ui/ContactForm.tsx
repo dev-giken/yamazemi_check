@@ -63,7 +63,7 @@ export default function ContactForm() {
       <h2 className="text-2xl font-bold text-center mb-6">お問い合わせ</h2>
 
       <p className="text-center mb-6">
-        活動内容や要望に関する情報は、本HP上でご確認いただけます
+        活動内容に関する情報は、本HP上でご確認いただけます
       </p>
 
       <form onSubmit={handleSubmit}>
