@@ -6,6 +6,7 @@ type NewsItem = {
   title: string;
   publishedAt: string;
   category: string[]; // categoryを配列として定義
+  content: string;
 };
 
 type NewsSectionProps = {

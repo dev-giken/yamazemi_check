@@ -52,11 +52,9 @@ export default async function Home() {
           <div className="px-8 text-xs">
             {mainItems
               .filter((item: MainContent) => {
-                console.log(item);
                 return item.title === ('1年間の活動') && item.category_1.includes('セカンドトップ') && item.category_2.includes('活動紹介');
               })
               .map((item: MainContent) => {
-                console.log("Mapping item:", item);
                 return (
                   <div key={item.id}>
                     <h3 className="font-bold text-2xl">{item.title}</h3>
@@ -72,11 +70,9 @@ export default async function Home() {
           <div className="px-8 text-xs">
             {mainItems
               .filter((item: MainContent) => {
-                console.log(item);
                 return item.title === ('1年間の活動(春学期)') && item.category_1.includes('セカンドトップ') && item.category_2.includes('活動紹介');
               })
               .map((item: MainContent) => {
-                console.log("Mapping item:", item);
                 return (
                   <div key={item.id}>
                     {/*<h3 className="font-bold text-2xl">{item.title}</h3>*/}
@@ -92,11 +88,9 @@ export default async function Home() {
           <div className="px-8 text-xs">
             {mainItems
               .filter((item: MainContent) => {
-                console.log(item);
                 return item.title === ('1年間の活動(夏休み)') && item.category_1.includes('セカンドトップ') && item.category_2.includes('活動紹介');
               })
               .map((item: MainContent) => {
-                console.log("Mapping item:", item);
                 return (
                   <div key={item.id}>
                     {/*<h3 className="font-bold text-2xl">{item.title}</h3>*/}
@@ -112,11 +106,9 @@ export default async function Home() {
           <div className="px-8 text-xs">
             {mainItems
               .filter((item: MainContent) => {
-                console.log(item);
                 return item.title === ('1年間の活動(秋学期)') && item.category_1.includes('セカンドトップ') && item.category_2.includes('活動紹介');
               })
               .map((item: MainContent) => {
-                console.log("Mapping item:", item);
                 return (
                   <div key={item.id}>
                     {/*<h3 className="font-bold text-2xl">{item.title}</h3>*/}

@@ -62,11 +62,9 @@ export default async function Home() {
           <div className="p-8 text-xs">
             {mainItems
               .filter((item: MainContent) => {
-                console.log(item);
                 return item.category_1.includes('トップ') && item.category_2.includes('none');
               })
               .map((item: MainContent) => {
-                console.log("Mapping item:", item);
                 return (
                   <div key={item.id}>
                     <h3 className="font-bold text-xl">{item.title}</h3>
