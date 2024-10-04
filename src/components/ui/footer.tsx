@@ -24,9 +24,9 @@ const Footer = () => {
           {/* ナビゲーションリンク（左詰めで縦並び） */}
           <div className="flex flex-col text-[12px] sm:text-xs space-y-4">
             <div>
-              <Link href="/about" className="hover:underline font-bold">
+              <span className="font-bold">
                 ゼミ員
-              </Link>
+              </span>
               {/* ゼミ員に従属するリンク */}
               <div className="ml-4 mt-1 space-y-2">
                 <Link href="/about/students" className="hover:underline block">
@@ -39,9 +39,9 @@ const Footer = () => {
             </div>
 
             <div>
-              <Link href="/activities" className="hover:underline font-bold">
+              <span className="font-bold">
                 活動
-              </Link>
+              </span>
               {/* 活動に従属するリンク */}
               <div className="ml-4 mt-1 space-y-2">
                 <Link href="/activities/year" className="hover:underline block">
@@ -60,9 +60,9 @@ const Footer = () => {
             </div>
 
             <div>
-              <Link href="/application" className="hover:underline font-bold">
+              <span className="font-bold">
                 入ゼミ
-              </Link>
+              </span>
               {/* 入ゼミに従属するリンク */}
               <div className="ml-4 mt-1 space-y-2">
                 <Link href="/application/entry" className="hover:underline block">
