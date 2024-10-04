@@ -30,7 +30,7 @@ const NewsSection: React.FC<NewsSectionProps> = ({ newsItems }) => {
                       {new Date(item.publishedAt).toLocaleDateString()}
                     </span>
                     <span
-                      className={`inline-block text-[8px] px-2 py-[5] rounded category-text ${
+                      className={`inline-block text-[8px] px-2 py-[5] rounded category-text font-bold ${
                         item.category[0] === '重要' ? 'bg-red-500 text-white' : 'bg-black text-white'
                       }`}
                     >
