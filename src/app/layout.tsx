@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
 import "./globals.css";
+import Script from 'next/script'; // Scriptをインポート
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -54,6 +55,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" type="image/webp" sizes="16x16" href="/images/favicon-16x16.webp" />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="canonical" href="https://www.yamazemi.info" />
+
+        {/* Google Analyticsのトラッキングコードを追加 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=YOUR_GOOGLE_ANALYTICS_ID"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'YOUR_GOOGLE_ANALYTICS_ID');
+          `}
+        </Script>
       </head>
       <body className={inter.className}>
         <Header />
