@@ -136,6 +136,13 @@ export default function Header() {
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
+                        <Link href="/application/events" className="bg-gray-800 text-white hover:bg-gray-700 p-2 rounded transition-colors duration-200">
+                          各種イベント
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
                         <Link href="/application/docs" className="block w-[80%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
                           説明会資料・先生インタビュー
                         </Link>
@@ -256,6 +263,11 @@ export default function Header() {
                     <li>
                       <Link href="/application/exam" onClick={toggleMenu}>
                         試験概要
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/application/events" onClick={toggleMenu}>
+                        各種イベント
                       </Link>
                     </li>
                     <li>
