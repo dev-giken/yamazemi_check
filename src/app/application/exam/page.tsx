@@ -47,7 +47,7 @@ export default async function Home() {
                     </BreadcrumbList>
                 </Breadcrumb>
             </div>
-            <div className="flex flex-col items-center justify-between">
+            <div className="flex flex-col justify-between">
                 <div className="px-8 py-40 text-xs">
                     {mainItems
                     .filter((item: MainContent) => {
