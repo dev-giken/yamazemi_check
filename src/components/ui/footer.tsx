@@ -71,6 +71,9 @@ const Footer = () => {
                 <Link href="/application/exam" className="hover:underline block">
                   試験概要
                 </Link>
+                <Link href="/application/events" className="hover:underline block">
+                  各種イベント
+                </Link>
                 <Link href="/application/docs" className="hover:underline block">
                   説明会資料・先生インタビュー
                 </Link>
