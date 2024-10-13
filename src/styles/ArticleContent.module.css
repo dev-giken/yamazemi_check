@@ -7,7 +7,7 @@
 
 /* 見出しのスタイル */
 .articleContent h1 {
-    font-size: 26px;
+    font-size: 16px;
     margin-top: 2rem;
     margin-bottom: 0.5rem; /* 次の行との間に少し余白 */
     font-weight: bold;
@@ -100,9 +100,92 @@
     display: block; /* ブロック要素として表示する */
 }
 
+/* ボタンコンテナのスタイル */
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;    /* 中央揃え */
+    justify-content: space-between;
+    margin-top: 24px;       /* コンテンツとの間に余白 */
+    gap: 12px;              /* リンク間の間隔 */
+}
+
+/* 「ホームへ戻る」リンクのスタイル */
+.homeLink {
+    font-size: 14px;
+    font-weight: 700;       /* より太く */
+    color: #0066cc;         /* リンクの色（ブルー系） */
+    text-decoration: underline; /* 下線を表示 */
+    cursor: pointer;
+    transition: color 0.3s ease; /* ホバー時の色変更をスムーズに */
+}
+
+.homeLink:hover {
+    color: #004999; /* ホバー時の色 */
+}
+
+/* 「一覧を見る」リンクのスタイル */
+.viewAllText {
+    font-size: 14px;
+    font-weight: 900;       /* さらに太く */
+    color: #0066cc;         /* リンクの色（ブルー系） */
+    text-decoration: underline; /* 下線を表示 */
+    cursor: pointer;
+    transition: color 0.3s ease; /* ホバー時の色変更をスムーズに */
+}
+
+.viewAllText:hover {
+    color: #004999; /* ホバー時の色 */
+}
+
 /* 画面幅が600px以上のときの画像の最大幅設定 */
 @media (min-width: 600px) {
     .articleContent img {
         max-width: 450px; /* 画像の最大幅を600pxに制限する */
     }
+
+    .buttonContainer {
+        flex-direction: row; /* デスクトップでは横並び */
+        justify-content: space-between;
+    }
+}
+
+/* Pagination のボタンスタイル */
+.paginationButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: #0066cc;
+    transition: color 0.3s ease;
+}
+
+.paginationButton:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.paginationButton:hover:not(:disabled) {
+    color: #004999;
+}
+
+/* Pagination のリンクスタイル */
+.paginationLink {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #0066cc;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.paginationLink:hover {
+    color: #004999;
+}
+
+/* アクティブページのスタイル */
+.activePage {
+    font-weight: bold;
+    color: #004999;
 }

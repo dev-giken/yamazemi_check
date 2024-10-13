@@ -1,0 +1,162 @@
+/* styles/NewsSection.module.css */
+
+.section {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 16px;
+  padding: 16px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  display: none;
+}
+
+.accordionMobile {
+  display: block;
+}
+
+.desktopNews {
+  display: none;
+}
+
+.newsList {
+  list-style: none;
+  padding: 0;
+}
+
+.newsItem {
+  margin-bottom: 16px;
+}
+
+/* モバイル版のニュースアイテム */
+@media (max-width: 639px) {
+  .newsItem {
+    /* 個別のアイテムスタイルはそのまま */
+  }
+
+  .newsHeader {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .category {
+    padding: 0 6px;
+    font-size: 9px;
+    line-height: 1;
+  }
+
+  .date {
+    font-size: 11px;
+    min-width: 70px;
+  }
+
+  .newsTitle {
+    font-size: 11px;
+  }
+}
+
+/* デスクトップ版での記事情報の横並び配置 */
+@media (min-width: 640px) {
+  .title {
+    display: block;
+    font-size: 24px;
+  }
+
+  .accordionMobile {
+    display: none;
+  }
+
+  .desktopNews {
+    display: block;
+  }
+
+  .newsItem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px dotted gray; /* 区切り線を追加 */
+    padding-bottom: 16px; /* 区切り線との間隔を調整 */
+  }
+
+  .newsItem:last-child {
+    border-bottom: none; /* 最後のアイテムには区切り線を表示しない */
+  }
+
+  .itemContent {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .newsHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .date {
+    font-size: 12px;
+    min-width: 70px;
+  }
+
+  .newsTitle {
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 0;
+    flex-grow: 1;
+  }
+
+  /* 区切り線のスタイルを削除（border-bottomで代用） */
+  .separator {
+    display: none;
+  }
+}
+
+.category {
+  padding: 2px 8px;
+  font-size: 10px;
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  min-width: 50px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* "重要" カテゴリの特別なスタイル */
+.category.important {
+  background-color: #EF4444;
+}
+
+/* 見出し以外のスタイル調整 */
+.newsTitle {
+  font-size: 12px;
+  font-weight: normal;
+  margin-top: 4px;
+}
+
+.separator {
+  /* border: none; */
+  border-bottom: 1px dotted gray;
+  margin-top: 8px;
+}
+
+.buttonContainer {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.viewAllText {
+  font-size: 14px;
+  font-weight: 900; /* より太く */
+  color: black; /* 黒色に変更 */
+  text-decoration: underline; /* 常に下線を表示 */
+  cursor: pointer;
+}

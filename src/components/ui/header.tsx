@@ -61,6 +61,13 @@ export default function Header() {
           <NavigationMenu className="hidden sm:flex space-x-4 text-sm">
             <NavigationMenuList>
               <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link href="/news" className="bg-gray-800 text-white hover:bg-gray-700 p-2 rounded transition-colors duration-200">
+                    お知らせ
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200">ゼミ員</NavigationMenuTrigger>
                 <NavigationMenuContent className="bg-gray-800 text-white p-4 rounded-md shadow-md" style={{ width: '16rem' }}>
                   <ul className="flex flex-col space-y-2">
@@ -196,6 +203,11 @@ export default function Header() {
       >
         <Accordion type="single" collapsible value={openAccordion ?? undefined} onValueChange={handleAccordionChange}>
           <ul className="flex flex-col text-sm">
+            <li>
+              <Link href="/news" onClick={toggleMenu}>
+                お知らせ
+              </Link>
+            </li>
             <li>
               <AccordionItem value="student-info">
                 <AccordionTrigger>

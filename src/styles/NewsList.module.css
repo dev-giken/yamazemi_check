@@ -1,0 +1,236 @@
+/* styles/NewsList.module.css */
+
+.main {
+    padding-top: 60px;
+    padding-bottom: 10px;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  
+  .title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 24px;
+  }
+  
+  .filter {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .filter label {
+    display: flex;
+    align-items: center;
+  }
+  
+  .filter select {
+    margin-left: 5px;
+  }
+  
+  .newsList {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .newsItem {
+    margin-bottom: 24px;
+  }
+  
+  .newsHeader {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  /* 日付のスタイル */
+  .date {
+    font-size: 14px;
+    color: gray;
+    min-width: 120px;
+  }
+  
+  /* カテゴリラベルのスタイル */
+  .category {
+    padding: 2px 8px; /* サイズを小さく調整 */
+    font-size: 12px;
+    background-color: black; /* デフォルトは黒色 */
+    color: white;
+    border-radius: 4px;
+    min-width: 60px; /* 幅を小さく調整 */
+    text-align: center;
+  }
+  
+  /* "重要" カテゴリの特別なスタイル */
+  .category.important {
+    background-color: #EF4444; /* bg-red-500 の色 */
+  }
+  
+  .newsTitle {
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 8px;
+  }
+  
+  .separator {
+    border: none;
+    border-bottom: 1px dotted gray;
+    margin-top: 16px;
+  }
+  
+  /* スマートフォン表示時のレスポンシブ対応 */
+  @media (max-width: 640px) {
+    .title {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 24px;
+    }
+
+    .date {
+      font-size: 12px; /* 日付の文字サイズを小さく */
+      min-width: 100px; /* 最小幅を調整 */
+    }
+  
+    .category {
+      font-size: 10px; /* カテゴリの文字サイズを小さく */
+      padding: 2px 6px; /* パディングを調整 */
+      min-width: 50px; /* 幅を調整 */
+    }
+  
+    .newsTitle {
+      font-size: 12px; /* タイトルの文字サイズを小さく */
+    }
+  
+    .newsHeader {
+      gap: 8px; /* 間隔を狭める */
+    }
+  
+    /* 年・月フィルターのスタイルを調整 */
+    .filter {
+      gap: 8px; /* 間隔を狭める */
+    }
+  
+    .filter label {
+      font-size: 12px; /* ラベルの文字サイズを小さく */
+    }
+  
+    .filter select {
+      font-size: 12px; /* セレクトボックス内の文字サイズを小さく */
+      padding: 2px 4px; /* パディングを調整 */
+    }
+  }
+
+  /* ボタンコンテナのスタイル */
+.buttonContainer {
+    display: flex;
+    flex-direction: column; /* リンクを縦に並べる */
+    align-items: center;    /* 中央揃え */
+    margin-top: 24px;       /* コンテンツとの間に余白 */
+    gap: 12px;              /* リンク間の間隔 */
+}
+
+/* 「ホームへ戻る」リンクのスタイル */
+.homeLink {
+    font-size: 14px;
+    font-weight: 700;       /* より太く */
+    color: #0066cc;         /* リンクの色（ブルー系） */
+    text-decoration: underline; /* 下線を表示 */
+    cursor: pointer;
+    transition: color 0.3s ease; /* ホバー時の色変更をスムーズに */
+    background: none;
+    border: none;
+}
+
+/* ホバー時の色変更 */
+.homeLink:hover {
+    color: #004999; /* ホバー時の色 */
+}
+
+/* 「一覧を見る」リンクのスタイル */
+.viewAllText {
+    font-size: 14px;
+    font-weight: 900;       /* さらに太く */
+    color: #0066cc;         /* リンクの色（ブルー系） */
+    text-decoration: underline; /* 下線を表示 */
+    cursor: pointer;
+    transition: color 0.3s ease; /* ホバー時の色変更をスムーズに */
+}
+
+/* ホバー時の色変更 */
+.viewAllText:hover {
+    color: #004999; /* ホバー時の色 */
+}
+
+/* Pagination のボタンスタイル */
+.paginationButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: #0066cc;
+    transition: color 0.3s ease;
+}
+
+.paginationButton:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.paginationButton:hover:not(:disabled) {
+    color: #004999;
+}
+
+/* Pagination のリンクスタイル */
+.paginationLink {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #0066cc;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.paginationLink:hover {
+    color: #004999;
+}
+
+/* アクティブページのスタイル */
+.activePage {
+    font-weight: bold;
+    color: #004999;
+}
+
+/* エリプシスや無効状態のスタイル */
+.disabledPagination {
+    font-size: 14px;
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+/* フォーカス時のアウトライン */
+.paginationLink:focus,
+.paginationButton:focus,
+.homeLink:focus,
+.viewAllText:focus {
+    outline: 2px solid #1D4ED8; /* フォーカス時のアウトライン */
+    outline-offset: 2px;
+}
+
+.paginationContent > li + li {
+    margin-left: 0.5rem; /* 各PaginationItem間に左マージンを追加 */
+}
+
+.paginationButton > svg,
+.paginationLink > svg {
+    margin-right: 0.25rem;
+}
+
+.paginationButton > span,
+.paginationLink > span {
+    margin-left: 0.25rem;
+}

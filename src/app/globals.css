@@ -83,3 +83,9 @@ label {
   white-space: nowrap; /* テキストを改行させない */
   word-break: keep-all; /* 単語を途中で改行させない */
 }
+
+/* styles/globals.css または他のグローバルスタイルファイル */
+
+html {
+  scroll-behavior: smooth;
+}

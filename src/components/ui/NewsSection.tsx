@@ -1,11 +1,15 @@
+// components/ui/NewsSection.tsx
+
 import React from 'react';
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion"; // shadcnのアコーディオンをインポート
+import Link from 'next/link';
+import styles from '@/styles/NewsSection.module.css';
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 type NewsItem = {
   id: string;
   title: string;
   publishedAt: string;
-  category: string[]; // categoryを配列として定義
+  category: string[];
   content: string;
 };
 
@@ -15,53 +19,77 @@ type NewsSectionProps = {
 
 const NewsSection: React.FC<NewsSectionProps> = ({ newsItems }) => {
   return (
-    <section className="w-4/5 sm:w-2/3 mx-auto mt-2 p-4">
-      <h2 className="text-[18px] sm:text-2xl font-bold mb-4 hidden sm:block">お知らせ</h2>
-      {/* Accordionを追加 */}
-      <Accordion type="single" collapsible className="sm:hidden">
+    <section className={styles.section}>
+      <h2 className={styles.title}>お知らせ</h2>
+
+      {/* モバイル版（アコーディオン） */}
+      <Accordion type="single" collapsible className={styles.accordionMobile}>
         <AccordionItem value="news">
-          <AccordionTrigger className="text-[16px] sm:text-[18px] font-bold">お知らせ</AccordionTrigger>
+          <AccordionTrigger className={styles.accordionTrigger}>お知らせ</AccordionTrigger>
           <AccordionContent>
-            <ul>
-              {newsItems.map((item) => (
-                <li key={item.id} className="mb-2 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 items-start sm:items-center">
-                  <div className="flex items-center space-x-2">
-                    <span className="text-gray-600 text-[12px]">
-                      {new Date(item.publishedAt).toLocaleDateString()}
+            <ul className={styles.newsList}>
+              {newsItems.map((item, index) => (
+                <li key={item.id} className={styles.newsItem}>
+                  <div className={styles.newsHeader}>
+                    <span className={styles.date}>
+                      {new Date(item.publishedAt).toLocaleDateString('ja-JP', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit',
+                      })}
                     </span>
-                    <span
-                      className={`inline-block text-[8px] px-2 py-[5] rounded category-text font-bold ${
-                        item.category[0] === '重要' ? 'bg-red-500 text-white' : 'bg-black text-white'
-                      }`}
-                    >
+                    <span className={`${styles.category} ${item.category[0] === '重要' ? styles.important : ''}`}>
                       {item.category[0]}
                     </span>
                   </div>
-                  <p className="sm:ml-4 text-[10px] sm:text-[12px] font-medium sm:w-3/4">{item.title}</p>
+                  <Link href={`/news/${item.id}`}>
+                    <p className={styles.newsTitle}>{item.title}</p>
+                  </Link>
+                  {index < newsItems.length - 1 && <hr className={styles.separator} />}
                 </li>
               ))}
             </ul>
+            {/* 一覧ページへのリンク */}
+            <div className={styles.buttonContainer}>
+              <Link href="/news">
+                <span className={styles.viewAllText}>一覧を見る</span>
+              </Link>
+            </div>
           </AccordionContent>
         </AccordionItem>
       </Accordion>
-      {/* 画面幅640px以上で表示されるニュースリスト */}
-      <ul className="hidden sm:block">
-        {newsItems.map((item) => (
-          <li key={item.id} className="mb-2 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 items-start sm:items-center">
-            <div className="flex items-center space-x-2">
-              <span className="text-gray-600 text-[12px]">{new Date(item.publishedAt).toLocaleDateString()}</span>
-              <span
-                className={`inline-block text-[8px] px-2 py-1 rounded category-text ${
-                  item.category[0] === '重要' ? 'bg-red-500 text-white' : 'bg-black text-white'
-                }`}
-              >
-                {item.category[0]}
-              </span>
-            </div>
-            <p className="sm:ml-4 text-[10px] sm:text-[12px] font-medium sm:w-3/4">{item.title}</p>
-          </li>
-        ))}
-      </ul>
+
+      {/* デスクトップ版 */}
+      <div className={styles.desktopNews}>
+        <ul className={styles.newsList}>
+          {newsItems.map((item, index) => (
+            <li key={item.id} className={styles.newsItem}>
+              <div className={styles.newsHeader}>
+                <span className={styles.date}>
+                  {new Date(item.publishedAt).toLocaleDateString('ja-JP', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                  })}
+                </span>
+                <span className={`${styles.category} ${item.category[0] === '重要' ? styles.important : ''}`}>
+                  {item.category[0]}
+                </span>
+              </div>
+              <Link href={`/news/${item.id}`}>
+                <p className={styles.newsTitle}>{item.title}</p>
+              </Link>
+              {index < newsItems.length - 1 && <hr className={styles.separator} />}
+            </li>
+          ))}
+        </ul>
+        {/* 一覧ページへのリンク */}
+        <div className={styles.buttonContainer}>
+          <Link href="/news">
+            <span className={styles.viewAllText}>一覧を見る</span>
+          </Link>
+        </div>
+      </div>
     </section>
   );
 };
