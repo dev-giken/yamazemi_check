@@ -1,5 +1,11 @@
 /* styles/ArticleContent.module.css */
 
+.main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
 .articleContent {
     line-height: 1.6;
     margin-bottom: 2rem;

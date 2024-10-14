@@ -29,6 +29,9 @@
   }
   
   .filter select {
+    padding: 0.1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.375rem;
     margin-left: 5px;
   }
   

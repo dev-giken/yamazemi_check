@@ -34,9 +34,6 @@
 
 /* モバイル版のニュースアイテム */
 @media (max-width: 639px) {
-  .newsItem {
-    /* 個別のアイテムスタイルはそのまま */
-  }
 
   .newsHeader {
     display: flex;

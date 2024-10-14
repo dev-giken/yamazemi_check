@@ -27,7 +27,7 @@ export default async function NewsListPage() {
   return (
     <main className={styles.main}>
         <div style={{ paddingTop: '15px', paddingBottom: '100px'}}>
-            <div className="w-full py-2 px-10">
+            <div className="w-full py-3 px-10">
                     <Breadcrumb>
                         <BreadcrumbList className="flex text-gray-500 text-[10px]">
                             <BreadcrumbItem>

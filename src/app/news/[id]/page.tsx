@@ -26,45 +26,47 @@ export default async function NewsDetail({ params }: { params: { id: string } })
     });
 
     return (
-      <main className="pt-[80px] pb-10 md:pb-[250px]" id="top">
-        <div className="w-full py-2 px-10">
-          <Breadcrumb>
-            <BreadcrumbList className="flex text-gray-500 text-[10px]">
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/">ホーム</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/news">お知らせ</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>{newsItem.title}</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-        </div>
-        <div className="flex flex-col justify-between p-10 md:p-[100px]">
-            <div className={styles.articleContent}>
-                <h1 className="mb-4">{newsItem.title}</h1>
-                <p className="text-gray-600 mb-2">
-                {new Date(newsItem.publishedAt).toLocaleDateString('ja-JP', {
-                    year: 'numeric',
-                    month: '2-digit',
-                    day: '2-digit',
-                })}
-                </p>
-                <div className="text-base">
-                <div dangerouslySetInnerHTML={{ __html: newsItem.content }} />
-                </div>
+      <main className={styles.main} id="top">
+        <div style={{ paddingTop: '80px', paddingBottom: '100px'}}>
+            <div className="w-full py-2 px-10">
+            <Breadcrumb>
+                <BreadcrumbList className="flex text-gray-500 text-[10px]">
+                <BreadcrumbItem>
+                    <BreadcrumbLink href="/">ホーム</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                    <BreadcrumbLink href="/news">お知らせ</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                    <BreadcrumbPage>{newsItem.title}</BreadcrumbPage>
+                </BreadcrumbItem>
+                </BreadcrumbList>
+            </Breadcrumb>
             </div>
-            <div className={styles.buttonContainer}>
-                <Link href="/" className={styles.homeLink}>
-                    ホームへ戻る
-                </Link>
-                <Link href="/news" className={styles.viewAllText}>
-                    一覧を見る
-                </Link>
+            <div className="flex flex-col justify-between p-10 md:p-[100px]">
+                <div className={styles.articleContent}>
+                    <h1 className="mb-4">{newsItem.title}</h1>
+                    <p className="text-gray-600 mb-2">
+                    {new Date(newsItem.publishedAt).toLocaleDateString('ja-JP', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit',
+                    })}
+                    </p>
+                    <div className="text-base">
+                    <div dangerouslySetInnerHTML={{ __html: newsItem.content }} />
+                    </div>
+                </div>
+                <div className={styles.buttonContainer}>
+                    <Link href="/" className={styles.homeLink}>
+                        ホームへ戻る
+                    </Link>
+                    <Link href="/news" className={styles.viewAllText}>
+                        一覧を見る
+                    </Link>
+                </div>
             </div>
         </div>
       </main>

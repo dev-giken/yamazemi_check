@@ -68,6 +68,13 @@ export default function Header() {
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link href="/blog" className="bg-gray-800 text-white hover:bg-gray-700 p-2 rounded transition-colors duration-200">
+                    ブログ
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200">ゼミ員</NavigationMenuTrigger>
                 <NavigationMenuContent className="bg-gray-800 text-white p-4 rounded-md shadow-md" style={{ width: '16rem' }}>
                   <ul className="flex flex-col space-y-2">
@@ -206,6 +213,11 @@ export default function Header() {
             <li>
               <Link href="/news" onClick={toggleMenu}>
                 お知らせ
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog" onClick={toggleMenu}>
+                ブログ
               </Link>
             </li>
             <li>

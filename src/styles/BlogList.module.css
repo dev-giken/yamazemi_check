@@ -1,0 +1,207 @@
+/* src/styles/BlogList.module.css */
+
+.container {
+    max-width: 1200px; /* 幅を広げる */
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0.2rem 0.2rem;
+}
+
+.title {
+    font-size: 28px; /* 動的にサイズを調整 */
+    white-space: nowrap; /* 改行を無効にする */
+    overflow: hidden; /* はみ出しを隠す */
+    text-overflow: ellipsis; /* はみ出した部分を省略記号にする */
+    width: 99%; /* 必ず幅を指定する */
+    display: block; /* インライン要素ではなくブロック要素として扱う */
+    font-weight: bold;
+    color: #333;
+    padding-bottom: 10px;
+}
+
+.blogTitle {
+    font-size: clamp(16px, 14px, 16px); /* 動的にサイズを調整 */
+    white-space: nowrap; /* 改行を無効にする */
+    overflow: hidden; /* はみ出しを隠す */
+    text-overflow: ellipsis; /* はみ出した部分を省略記号にする */
+    width: 99%; /* 必ず幅を指定する */
+    display: block; /* インライン要素ではなくブロック要素として扱う */
+    font-weight: bold;
+    color: #333;
+}
+
+/* Blur and white background for text */
+.textOverlay {
+    position: absolute;
+    bottom: 0; /* カードの下部に配置 */
+    width: 100%;
+    height: calc(100% * 3 / 7); /* 高さを全体の3/7に設定 */
+    background-color: #add8e6b3;
+    padding: 10px; /* パディングを設定して余白を確保 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* フィルターコンテナのスタイル */
+.filter {
+    display: flex;
+    gap:14px; /* 各フィルター間の間隔 */
+    margin-bottom: 20px;
+}
+
+.filter label {
+    display: flex;
+    font-size: 15px;
+    align-items: center;
+}
+
+.filter select {
+    padding: 0.1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.375rem;
+    margin-left: 4px;
+}
+
+.filter select:focus {
+    border-color: #0066cc;
+    outline: none;
+}
+
+/* メディアクエリ: 画面幅が600px以上のときのフィルターのレイアウト */
+@media (min-width: 600px) {
+    .filter {
+      gap: 8px;
+    }
+
+    .filter label {
+      font-size: 15px;
+    }
+
+    .filter label:last-child {
+      margin-right: 0;
+    }
+}
+
+/* Bento Grid のスタイル */
+.bentoGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* カードの横幅を調整 */
+    gap: 20px;
+}
+
+@media (min-width: 1024px) { /* デスクトップビュー */
+    .bentoGrid {
+        grid-template-columns: repeat(4, 1fr); /* 4列に固定 */
+    }
+}
+
+.gridItem {
+    /* BentoCardのスタイルはbento-grid.tsxで定義 */
+    display: flex;
+    flex-grow: 1; /* 親要素がフレックスコンテナの場合、幅が自動的に広がる */
+    min-width: 250px; /* 最小幅を設定して狭くなりすぎないようにする */
+    align-items: center; /* アイコンと他の要素を縦方向に中央揃え */
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* より強い影を追加 */
+    transition: box-shadow 0.3s ease; /* ホバー時の影のスムーズな変化 */
+    height: 14rem; /* 2/3の高さに設定 */
+}
+
+.gridItem:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* ホバー時に影を強調 */
+}
+
+@media (max-width: 600px) { /* モバイルビュー */
+    .filter {
+        display: flex;
+        gap: 8px; /* 各フィルター間の間隔 */
+    }
+    
+    .filter label {
+        display: flex;
+        font-size: 13px;
+        align-items: center;
+    }
+    
+    .filter select {
+        padding: 0.1rem;
+        border: 1px solid #ccc;
+        border-radius: 0.375rem;
+        margin-left: 5px;
+    }
+    
+    .gridItem {
+        height: calc(100vw * 0.4); /* 横幅に対して2/5の高さ */
+    }
+}
+
+/* Pagination の無効状態のスタイル */
+.disabledPagination {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* カテゴリタグのスタイル */
+.categoryTag {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.375rem;
+    background-color: #e0e0e0;
+    color: #333;
+    font-size: 0.75rem;
+    margin-right: 0.25rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.categoryTag:hover {
+    background-color: #d1d5db;
+    color: #1f2937;
+}
+
+.dark .categoryTag {
+    background-color: #444;
+    color: #fff;
+}
+
+.dark .categoryTag:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+/* Avatarのスタイル */
+.AvatarRoot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* サイズを統一 */
+    height: 40px; /* 幅と高さを同じにして常に円形にする */
+    border-radius: 50%; /* 完全な円形にする */
+    overflow: hidden;
+    background-color: #6b7280; /* フォールバック背景色 */
+    object-fit: cover; /* 画像をボックスに収める */
+    flex-shrink: 0; /* 親要素が狭くなってもアイコンが縮まないようにする */
+}
+
+.AvatarImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* アイコン画像をボックス内に収める */
+    border-radius: 50%; /* 画像自体も円形に保つ */
+}
+
+.AvatarFallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 0.875rem;
+  color: #ffffff;
+  background-color: #6b7280; /* フォールバック背景色 */
+}
