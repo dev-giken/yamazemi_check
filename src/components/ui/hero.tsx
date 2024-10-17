@@ -74,7 +74,7 @@ const Hero = () => {
           計量経済学をツールに総合力を身につける
         </p>
         <button className="text-[10px] sm:text-sm bg-white text-black px-2 py-2 rounded">
-          ゼミ員ブログ(準備中)
+          ゼミ員ブログ始動！
         </button>
       </div>
     </div>
