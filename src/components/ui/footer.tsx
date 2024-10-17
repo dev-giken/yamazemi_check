@@ -23,67 +23,91 @@ const Footer = () => {
 
           {/* ナビゲーションリンク（左詰めで縦並び） */}
           <div className="flex flex-col text-[12px] sm:text-xs space-y-4">
+            {/* 「お知らせ」リンク */}
+            <Link href="/news" className="hover:underline font-bold">
+              お知らせ
+            </Link>
+
+            {/* 「ブログ」リンク */}
+            <Link href="/blog" className="hover:underline font-bold">
+              ブログ
+            </Link>
+
+            {/* 「ゼミ情報」セクション */}
             <div>
               <span className="font-bold">
-                ゼミ員
+                ゼミ情報
               </span>
-              {/* ゼミ員に従属するリンク */}
+              {/* ゼミ情報に従属するリンク */}
               <div className="ml-4 mt-1 space-y-2">
-                <Link href="/about/students" className="hover:underline block">
-                  学生紹介
-                </Link>
-                <Link href="/about/professor" className="hover:underline block">
-                  教授紹介
-                </Link>
+                <span className="font-semibold">ゼミ員</span>
+                <ul className="ml-4">
+                  <li>
+                    <Link href="/about/students" className="hover:underline block">
+                      学生紹介
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/about/professor" className="hover:underline block">
+                      教授紹介
+                    </Link>
+                  </li>
+                </ul>
+                <span className="font-semibold">活動</span>
+                <ul className="ml-4">
+                  <li>
+                    <Link href="/activities/year" className="hover:underline block">
+                      年間の活動
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/activities/mitaron" className="hover:underline block">
+                      三田論
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/activities/ws" className="hover:underline block">
+                      WS
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/activities/obog" className="hover:underline block">
+                      OB/OGとの関わり
+                    </Link>
+                  </li>
+                </ul>
+                <span className="font-semibold">入ゼミ</span>
+                <ul className="ml-4">
+                  <li>
+                    <Link href="/application/entry" className="hover:underline block">
+                      エントリー
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/application/exam" className="hover:underline block">
+                      試験概要
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/application/events" className="hover:underline block">
+                      各種イベント
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/application/docs" className="hover:underline block">
+                      説明会資料・先生インタビュー
+                    </Link>
+                  </li>
+                </ul>
               </div>
             </div>
 
-            <div>
-              <span className="font-bold">
-                活動
-              </span>
-              {/* 活動に従属するリンク */}
-              <div className="ml-4 mt-1 space-y-2">
-                <Link href="/activities/year" className="hover:underline block">
-                  年間の活動
-                </Link>
-                <Link href="/activities/mitaron" className="hover:underline block">
-                  三田論
-                </Link>
-                <Link href="/activities/ws" className="hover:underline block">
-                  WS
-                </Link>
-                <Link href="/activities/obog" className="hover:underline block">
-                  OB/OGとの関わり
-                </Link>
-              </div>
-            </div>
-
-            <div>
-              <span className="font-bold">
-                入ゼミ
-              </span>
-              {/* 入ゼミに従属するリンク */}
-              <div className="ml-4 mt-1 space-y-2">
-                <Link href="/application/entry" className="hover:underline block">
-                  エントリー
-                </Link>
-                <Link href="/application/exam" className="hover:underline block">
-                  試験概要
-                </Link>
-                <Link href="/application/events" className="hover:underline block">
-                  各種イベント
-                </Link>
-                <Link href="/application/docs" className="hover:underline block">
-                  説明会資料・先生インタビュー
-                </Link>
-              </div>
-            </div>
-
+            {/* 「お問い合わせ」リンク */}
             <Link href="/contact" className="hover:underline font-bold">
               お問い合わせ
             </Link>
 
+            {/* プライバシーポリシー */}
             <div className="mt-4"> {/* 少し行間を空けてからプライバシーポリシーを表示 */}
               <Link href="/privacy" className="hover:underline">
                 プライバシーポリシー

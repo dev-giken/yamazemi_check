@@ -38,9 +38,9 @@ export default function Header() {
       <header
         className={`bg-gray-800 text-white fixed shadow-lg z-50 transition-all duration-300 ease-in-out ${
           isTop
-            ? 'top-0 left-0 w-full rounded-none py-3 sm:py-4' // デフォルトの高さ
+            ? 'top-0 left-0 w-full rounded-none py-3 sm:py-4'
             : 'top-2 sm:top-4 left-1/2 w-11/12 rounded-xl transform -translate-x-1/2 py-2 sm:py-3'
-        } ${menuOpen ? 'py-2' : 'py-2'}`}  // バーガーメニューが出現時の高さ調整
+        } ${menuOpen ? 'py-2' : 'py-2'}`}
       >
         <nav className="container mx-auto flex justify-between items-center px-4">
           <div className="flex z-20 items-center">
@@ -186,96 +186,93 @@ export default function Header() {
           </div>
         </nav>
       </header>
+
       {/* スライドインメニュー */}
       <div
         className={`fixed top-0 right-0 w-[250px] bg-black bg-opacity-75 text-white p-4 z-40 transition-transform duration-500 ease-in-out ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
-        style={{ paddingTop: '80px', borderBottomLeftRadius: '20px' }} // 左下角に丸みを追加
+        style={{ paddingTop: '80px', borderBottomLeftRadius: '20px' }}
       >
         <Accordion type="single" collapsible value={openAccordion ?? undefined} onValueChange={handleAccordionChange}>
-          <ul className="flex flex-col text-sm">
+          <ul className="flex flex-col text-sm space-y-2"> {/* Change to space-y-2 */}
             <li>
-              <Link href="/news" onClick={toggleMenu}>
+              <Link href="/news" onClick={toggleMenu} className="block p-2 text-left"> {/* Left-align text */}
                 お知らせ
               </Link>
             </li>
             <li>
-              <Link href="/blog" onClick={toggleMenu}>
+              <Link href="/blog" onClick={toggleMenu} className="block p-2 text-left">
                 ブログ
               </Link>
             </li>
             <li>
               <AccordionItem value="student-info">
-                <AccordionTrigger>
+                <AccordionTrigger className="block p-2 text-left">
                   ゼミ情報
                 </AccordionTrigger>
-                <AccordionContent>
-                  <ul className="pl-4 space-y-2">
-                    <li className="text-gray-400">ゼミ員</li>
-                    <li>
-                      <Link href="/about/students" onClick={toggleMenu}>
-                        学生紹介
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/about/professor" onClick={toggleMenu}>
-                        教授紹介
-                      </Link>
-                    </li>
-                    <li className="text-gray-400">活動</li>
-                    <li>
-                      <Link href="/activities/year" onClick={toggleMenu}>
-                        年間の活動
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/activities/mitaron" onClick={toggleMenu}>
-                        三田論
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/activities/ws" onClick={toggleMenu}>
-                        WS
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/activities/obog" onClick={toggleMenu}>
-                        OB/OGとの関わり
-                      </Link>
-                    </li>
-                  </ul>
+                <AccordionContent className="pl-4 space-y-2">
+                  <li className="text-gray-400">ゼミ員</li>
+                  <li>
+                    <Link href="/about/students" onClick={toggleMenu} className="block p-2 text-left">
+                      学生紹介
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/about/professor" onClick={toggleMenu} className="block p-2 text-left">
+                      教授紹介
+                    </Link>
+                  </li>
+                  <li className="text-gray-400">活動</li>
+                  <li>
+                    <Link href="/activities/year" onClick={toggleMenu} className="block p-2 text-left">
+                      年間の活動
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/activities/mitaron" onClick={toggleMenu} className="block p-2 text-left">
+                      三田論
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/activities/ws" onClick={toggleMenu} className="block p-2 text-left">
+                      WS
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/activities/obog" onClick={toggleMenu} className="block p-2 text-left">
+                      OB/OGとの関わり
+                    </Link>
+                  </li>
                 </AccordionContent>
               </AccordionItem>
             </li>
             <li>
               <AccordionItem value="application">
-                <AccordionTrigger>
+                <AccordionTrigger className="block p-2 text-left">
                   入ゼミ
                 </AccordionTrigger>
-                <AccordionContent>
-                  <ul className="pl-4 space-y-2">
-                    <li>
-                      <Link href="/application/entry" onClick={toggleMenu}>
-                        エントリー
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/application/exam" onClick={toggleMenu}>
-                        試験概要
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/application/events" onClick={toggleMenu}>
-                        各種イベント
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/application/docs" onClick={toggleMenu}>
-                        説明会資料・先生インタビュー
-                      </Link>
-                    </li>
-                  </ul>
+                <AccordionContent className="pl-4 space-y-2">
+                  <li>
+                    <Link href="/application/entry" onClick={toggleMenu} className="block p-2 text-left">
+                      エントリー
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/application/exam" onClick={toggleMenu} className="block p-2 text-left">
+                      試験概要
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/application/events" onClick={toggleMenu} className="block p-2 text-left">
+                      各種イベント
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/application/docs" onClick={toggleMenu} className="block p-2 text-left">
+                      説明会資料・先生インタビュー
+                    </Link>
+                  </li>
                 </AccordionContent>
               </AccordionItem>
             </li>

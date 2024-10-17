@@ -6,6 +6,7 @@ import 'swiper/css/autoplay';
 import 'swiper/swiper-bundle.css';
 import { Autoplay, Pagination } from 'swiper/modules';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Hero = () => {
   return (
@@ -73,9 +74,11 @@ const Hero = () => {
         <p className="text-xs sm:text-[15px] mb-8 sm:mb-12">
           計量経済学をツールに総合力を身につける
         </p>
-        <button className="text-[10px] sm:text-sm bg-white text-black px-2 py-2 rounded">
-          ゼミ員ブログ始動！
-        </button>
+        <Link href="/blog">
+          <button className="text-[10px] sm:text-sm bg-white text-black px-2 py-2 rounded">
+            ゼミ員ブログ始動！
+          </button>
+        </Link>
       </div>
     </div>
   );
