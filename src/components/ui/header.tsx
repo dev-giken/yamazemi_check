@@ -43,7 +43,7 @@ export default function Header() {
         } ${menuOpen ? 'py-2' : 'py-2'}`}  // バーガーメニューが出現時の高さ調整
       >
         <nav className="container mx-auto flex justify-between items-center px-4">
-          <div className="flex items-center">
+          <div className="flex z-20 items-center">
             <Link href="/" className="flex items-center">
               <Image
                 src="/images/header/yamazemi_logo_celeste.webp"
@@ -75,54 +75,49 @@ export default function Header() {
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200">ゼミ員</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200">ゼミ情報</NavigationMenuTrigger>
                 <NavigationMenuContent className="bg-gray-800 text-white p-4 rounded-md shadow-md" style={{ width: '16rem' }}>
                   <ul className="flex flex-col space-y-2">
+                    <li className="text-gray-400">ゼミ員</li>
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link href="/about/students" className="block w-[80%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
+                        <Link href="/about/students" className="block w-[95%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
                           学生紹介
                         </Link>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link href="/about/professor" className="block w-[80%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
+                        <Link href="/about/professor" className="block w-[95%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
                           教授紹介
                         </Link>
                       </NavigationMenuLink>
                     </li>
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200">活動</NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-gray-800 text-white p-4 rounded-md shadow-md" style={{ width: '16rem' }}>
-                  <ul className="flex flex-col space-y-2">
+                    <li className="text-gray-400">活動</li>
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link href="/activities/year" className="block w-[80%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
+                        <Link href="/activities/year" className="block w-[95%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
                           年間の活動
                         </Link>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link href="/activities/mitaron" className="block w-[80%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
+                        <Link href="/activities/mitaron" className="block w-[95%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
                           三田論
                         </Link>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link href="/activities/ws" className="block w-[80%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
+                        <Link href="/activities/ws" className="block w-[95%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
                           WS
                         </Link>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link href="/activities/obog" className="block w-[80%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
+                        <Link href="/activities/obog" className="block w-[95%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
                           OB/OGとの関わり
                         </Link>
                       </NavigationMenuLink>
@@ -136,14 +131,14 @@ export default function Header() {
                   <ul className="flex flex-col space-y-2 text-left">
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link href="/application/entry" className="block w-[80%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
+                        <Link href="/application/entry" className="block w-[95%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
                           エントリー
                         </Link>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link href="/application/exam" className="block w-[80%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
+                        <Link href="/application/exam" className="block w-[95%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
                           試験概要
                         </Link>
                       </NavigationMenuLink>
@@ -157,7 +152,7 @@ export default function Header() {
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link href="/application/docs" className="block w-[80%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
+                        <Link href="/application/docs" className="block w-[95%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
                           説明会資料・先生インタビュー
                         </Link>
                       </NavigationMenuLink>
@@ -165,17 +160,8 @@ export default function Header() {
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link href="/contact" className="bg-gray-800 text-white hover:bg-gray-700 p-2 rounded transition-colors duration-200">
-                    お問い合わせ
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
-
-
           {/* バーガーメニュー */}
           <div className="sm:hidden flex items-center z-60 relative">
             <button onClick={toggleMenu} className="focus:outline-none z-60 relative">
@@ -200,7 +186,6 @@ export default function Header() {
           </div>
         </nav>
       </header>
-
       {/* スライドインメニュー */}
       <div
         className={`fixed top-0 right-0 w-[250px] bg-black bg-opacity-75 text-white p-4 z-40 transition-transform duration-500 ease-in-out ${
@@ -223,10 +208,11 @@ export default function Header() {
             <li>
               <AccordionItem value="student-info">
                 <AccordionTrigger>
-                  ゼミ員
+                  ゼミ情報
                 </AccordionTrigger>
                 <AccordionContent>
                   <ul className="pl-4 space-y-2">
+                    <li className="text-gray-400">ゼミ員</li>
                     <li>
                       <Link href="/about/students" onClick={toggleMenu}>
                         学生紹介
@@ -237,17 +223,7 @@ export default function Header() {
                         教授紹介
                       </Link>
                     </li>
-                  </ul>
-                </AccordionContent>
-              </AccordionItem>
-            </li>
-            <li>
-              <AccordionItem value="activities">
-                <AccordionTrigger>
-                  活動
-                </AccordionTrigger>
-                <AccordionContent>
-                  <ul className="pl-4 space-y-2">
+                    <li className="text-gray-400">活動</li>
                     <li>
                       <Link href="/activities/year" onClick={toggleMenu}>
                         年間の活動
@@ -302,11 +278,6 @@ export default function Header() {
                   </ul>
                 </AccordionContent>
               </AccordionItem>
-            </li>
-            <li>
-              <Link href="/contact" onClick={toggleMenu}>
-                お問い合わせ
-              </Link>
             </li>
           </ul>
         </Accordion>

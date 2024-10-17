@@ -98,7 +98,7 @@
     width: 100%;
     border-collapse: collapse;
     margin: 1.5rem 0;
-    font-size: 12px !important;
+    font-size: 10px !important;
 }
 
 .articleContent th {
@@ -230,7 +230,7 @@
     .articleContent table,
     .articleContent th,
     .articleContent td {
-      font-size: 11px !important; /* Smaller font for tables */
+      font-size: 8px !important; /* Smaller font for tables */
       padding: 5px; /* Adjust padding */
     }
   

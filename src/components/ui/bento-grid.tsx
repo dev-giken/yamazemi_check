@@ -55,18 +55,19 @@ const BentoCard = ({
   <div
     key={name}
     className={cn(
-      "group relative overflow-hidden rounded-xl transition-transform duration-300 ease-in-out",
-      "hover:scale-105",
+      "group relative overflow-hidden rounded-xl transition-transform transition-duration-1000 ease-in-out", // Change duration to 700ms for a slower effect
+      "hover:scale-105", // Scale to 1.05 when hovered
       className,
     )}
   >
+
     {/* Thumbnail Image */}
     <div className="relative h-48 w-full">
       {background}
     </div>
 
     {/* Overlay for text (with blur effect and light blue background) */}
-    <div className="absolute bottom-0 w-full h-3/7 bg-opacity-70 backdrop-blur-md p-4 textOverlay"
+    <div className="absolute bottom-0 w-full h-3/7 bg-opacity-70 backdrop-blur-xs p-4 textOverlay"
       style={{
         backgroundColor: 'rgba(200, 230, 240, 0.7)', // 優しい水色の透明度70%
         backdropFilter: 'blur(3px)', // ブラーの強さを15pxに調整
@@ -90,30 +91,33 @@ const BentoCard = ({
         </Avatar.Root>
         <div>
           <h3 className={styles.blogTitle}>{name}</h3>
-          <p className="text-sm">{author}</p>
-        </div>
-      </div>
-      <div className="mt-2 text-xs flex items-center">
-        <span>{publishedAt}</span>
-        <span className="mx-2">|</span>
-        <div>
-          {category.map((cat, idx) => (
-            <span key={idx} className={styles.categoryTag}>
-              {cat}
-            </span>
-          ))}
+          
+          {/* Mobile view: everything in one line */}
+          <div className={`${styles.details} ${styles.mobileOnly}`}>
+            <p className={styles.author}>{author}</p>
+            <span className="mx-2">|</span>
+            <span>{publishedAt}</span>
+            <span className="mx-2">|</span>
+            <div>
+              {category.map((cat, idx) => (
+                <span key={idx} className={styles.categoryTag}>
+                  {cat}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     {/* Hover Content */}
-    <div className="absolute bottom-0 left-0 w-full p-4 bg-black bg-opacity-70 text-white transform translate-y-full transition-transform duration-300 ease-in-out group-hover:translate-y-0">
-      <p className="text-sm mb-4">{contentPreview}...</p>
-      <div className="flex justify-end"> {/* Flexbox for right alignment */}
+    <div className={`${styles.hoverContent} group-hover:translate-y-0`}>
+      <p className={styles.contentPreview}>{contentPreview}...</p>
+      <div className={styles.buttonContainer}>
         <Button variant="ghost" asChild size="sm">
           <a href={href}>
             {cta}
-            <ArrowRightIcon className="ml-2 h-4 w-4" />
+            <ArrowRightIcon className="ml-2 h-3 w-3" />
           </a>
         </Button>
       </div>

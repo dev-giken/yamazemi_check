@@ -9,7 +9,7 @@
 .main {
     max-width: 800px;
     margin: 0 auto;
-    padding: 0.2rem 0.2rem;
+    padding: 0.5rem 0.5rem;
 }
 
 .title {
@@ -25,29 +25,41 @@
 }
 
 .blogTitle {
-    font-size: clamp(16px, 14px, 16px); /* 動的にサイズを調整 */
+    font-size: clamp(0.7rem, 1vw, 0.8rem); /* 動的にサイズを調整 */
     white-space: nowrap; /* 改行を無効にする */
     overflow: hidden; /* はみ出しを隠す */
     text-overflow: ellipsis; /* はみ出した部分を省略記号にする */
-    width: 99%; /* 必ず幅を指定する */
+    width: 100%; /* 必ず幅を指定する */
     display: block; /* インライン要素ではなくブロック要素として扱う */
     font-weight: bold;
     color: #333;
 }
 
+.author {
+    font-size: 0.6rem;
+}
+
+.details {
+    font-size: clamp(0.6rem, 1vw, 0.6rem); /* Resizable font size */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 /* Blur and white background for text */
 .textOverlay {
     position: absolute;
-    bottom: 0; /* カードの下部に配置 */
+    bottom: 0;
     width: 100%;
-    height: calc(100% * 3 / 7); /* 高さを全体の3/7に設定 */
-    background-color: #add8e6b3;
-    padding: 10px; /* パディングを設定して余白を確保 */
+    height: calc(100% * 1 / 2); /* Adjusted to half the card height */
+    background-color: rgba(200, 230, 240, 0.7); /* Light blue background with transparency */
+    padding: 10px; /* Padding for text inside the overlay */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    backdrop-filter: blur(3px); /* Optional blur effect */
+    transition: transform 0.5s ease-in-out; /* Smooth transition */
 }
-
 /* フィルターコンテナのスタイル */
 .filter {
     display: flex;
@@ -73,6 +85,16 @@
     outline: none;
 }
 
+.desktopOnly {
+    display: none;
+    flex-direction: column;
+}
+  
+.mobileOnly {
+    display: flex;
+    flex-direction: row;
+}
+
 /* メディアクエリ: 画面幅が600px以上のときのフィルターのレイアウト */
 @media (min-width: 600px) {
     .filter {
@@ -91,26 +113,22 @@
 /* Bento Grid のスタイル */
 .bentoGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* カードの横幅を調整 */
+    grid-template-columns: repeat(auto-fill, minmax(275px, 1fr)); /* カードの横幅を調整 */
     gap: 20px;
 }
 
-@media (min-width: 1024px) { /* デスクトップビュー */
-    .bentoGrid {
-        grid-template-columns: repeat(4, 1fr); /* 4列に固定 */
-    }
-}
+
 
 .gridItem {
     /* BentoCardのスタイルはbento-grid.tsxで定義 */
     display: flex;
     flex-grow: 1; /* 親要素がフレックスコンテナの場合、幅が自動的に広がる */
-    min-width: 250px; /* 最小幅を設定して狭くなりすぎないようにする */
+    min-width: 300px; /* 最小幅を設定して狭くなりすぎないようにする */
     align-items: center; /* アイコンと他の要素を縦方向に中央揃え */
     box-sizing: border-box;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* より強い影を追加 */
-    transition: box-shadow 0.3s ease; /* ホバー時の影のスムーズな変化 */
-    height: 14rem; /* 2/3の高さに設定 */
+    transition: box-shadow 1.0s ease-in-out; /* ホバー時の影のスムーズな変化 */
+    height: 10rem; /* 2/3の高さに設定 */
 }
 
 .gridItem:hover {
@@ -118,6 +136,29 @@
 }
 
 @media (max-width: 600px) { /* モバイルビュー */
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .blogTitle {
+        font-size: 0.7rem; /* 動的にサイズを調整 */
+    }
+
+    .author {
+        margin-right: 0.5rem;
+    }
+
+    .details {
+        flex-direction: row; /* Mobile: everything in one line */
+        font-size: 0.5rem; /* Author, date, and category have the same font size */
+        align-items: center; /* Vertically center the elements */
+    }
+
+    .categoryTag {
+        font-size: inherit; /* Inherit font size from .details */
+        margin-left: 0.5rem; /* Add some space between category tags */
+    }
+
     .filter {
         display: flex;
         gap: 8px; /* 各フィルター間の間隔 */
@@ -137,7 +178,11 @@
     }
     
     .gridItem {
-        height: calc(100vw * 0.4); /* 横幅に対して2/5の高さ */
+        height: calc(100vw * 0.35); /* 横幅に対して2/5の高さ */
+    }
+
+    .textOverlay {
+        height: calc(100% * 1 / 3); /* Adjust height of overlay on mobile */
     }
 }
 
@@ -150,13 +195,12 @@
 /* カテゴリタグのスタイル */
 .categoryTag {
     display: inline-block;
-    padding: 0.2rem 0.5rem;
+    padding: 0.1rem 0.25rem;
     border-radius: 0.375rem;
     background-color: #e0e0e0;
     color: #333;
-    font-size: 0.75rem;
+    font-size: clamp(0.5rem, 1vw, 0.6rem); /* レスポンシブなフォントサイズ */
     margin-right: 0.25rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .categoryTag:hover {
@@ -174,13 +218,69 @@
     color: #fff;
 }
 
+
+/* Hover content styling */
+.hoverContent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.75rem; /* Reduced padding */
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background */
+    color: white;
+    transform: translateY(100%); /* Start below the visible area */
+    transition: transform 0.5s ease-in-out; /* Smooth transition */
+    height: 60%; /* Lower height of hover area */
+  }
+  
+  /* On hover, slide the content up */
+  .group:hover .hoverContent {
+    transform: translateY(0); /* Slide up into view */
+  }
+  
+  /* Make the font size responsive */
+  .contentPreview {
+    font-size: clamp(0.55rem, 1vw, 0.7rem); /* Smaller, responsive font size */
+    margin-bottom: 0.4rem; /* Reduced margin */
+  }
+  
+  /* Button container with right alignment */
+  .buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  @media (min-width: 1024px) {
+    .hoverContent {
+      height: 70%; /* Lower height even more for mobile */
+    }
+  
+    .contentPreview {
+      font-size: 0.65rem; /* Smaller font size for mobile */
+    }
+  }
+  
+  /* Responsive adjustments for mobile */
+  @media (max-width: 600px) {
+    .hoverContent {
+      padding: 0.4rem; /* Adjust padding for mobile */
+      height: 65%; /* Lower height even more for mobile */
+    }
+  
+    .contentPreview {
+      font-size: clamp(0.7rem, 1vw, 1.2rem); /* Smaller font size for mobile */
+    }
+  }
+
+
+
 /* Avatarのスタイル */
 .AvatarRoot {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px; /* サイズを統一 */
-    height: 40px; /* 幅と高さを同じにして常に円形にする */
+    width: 2rem; /* サイズを統一 */
+    height: 2rem; /* 幅と高さを同じにして常に円形にする */
     border-radius: 50%; /* 完全な円形にする */
     overflow: hidden;
     background-color: #6b7280; /* フォールバック背景色 */
