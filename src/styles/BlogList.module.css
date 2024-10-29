@@ -48,7 +48,7 @@
     font-size: clamp(0.6rem, 1vw, 0.6rem); /* Resizable font size */
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
 }
 
 /* Blur and white background for text */
@@ -171,7 +171,7 @@
     
     .filter label {
         display: flex;
-        font-size: 13px;
+        font-size: clamp(0.7rem, 1.5vw, 0.7rem);
         align-items: center;
     }
     
