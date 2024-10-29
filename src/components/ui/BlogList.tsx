@@ -47,7 +47,7 @@ export default function BlogList({ initialBlogItems }: Props) {
     const [selectedMonth, setSelectedMonth] = useState<string>('');
     const [selectedCategory, setSelectedCategory] = useState<string>(''); // カテゴリ選択用ステート
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const itemsPerPage = 12; // 一ページあたり12件
+    const itemsPerPage = 8; // 一ページあたり8件記事表示
 
     // 年と月の選択肢を生成
     const years = Array.from(new Set(blogItems.map(item => new Date(item.publishedAt).getFullYear().toString())));
@@ -194,8 +194,9 @@ export default function BlogList({ initialBlogItems }: Props) {
                 ))}
             </BentoGrid>
 
-        {/* Pagination の表示 */}
-        {renderPagination()}
+            <div className={styles.paginationContainer}>
+                {renderPagination()}
+            </div>
         </div>
     );
 }
