@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { revalidateTag } from 'next/cache'; // revalidateTagをインポート
 
 export async function GET(req) {
     const { searchParams } = new URL(req.url);
@@ -9,8 +10,8 @@ export async function GET(req) {
 
     if (updatedAt) {
         try {
-            // 再生成のパス指定を行います
-            await NextResponse.revalidate(`/blog/${id}`);
+            // 再生成のタグ指定
+            revalidateTag(`/blog/${id}`);
             console.log('Revalidation successful for:', `/blog/${id}`);
             return NextResponse.json({ revalidated: true });
         } catch (err) {
