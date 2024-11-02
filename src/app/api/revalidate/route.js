@@ -13,8 +13,8 @@ export async function GET(req) {
             console.log('Revalidation successful for:', `/blog/${id}`);
             return NextResponse.json({ revalidated: true });
         } catch (err) {
-            console.error('Revalidation error:', err);
-            return NextResponse.json({ message: 'Error revalidating' }, { status: 500 });
+            console.error('Revalidation error:', err); // エラー内容をログに出力
+            return NextResponse.json({ message: 'Error revalidating', error: err.message }, { status: 500 });
         }
     } else {
         console.warn('No update detected in revalidate request');
