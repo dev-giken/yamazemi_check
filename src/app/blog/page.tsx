@@ -11,6 +11,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
+import { revalidateTag } from 'next/cache';
 
 // BlogItem型の定義
 type BlogItem = {
@@ -33,20 +34,10 @@ type BlogItem = {
   content: string;
 };
 
-// シンプルなキャッシュストアの定義（例としてのインメモリキャッシュ）
-const cacheStore: { [key: string]: any } = {};
-
-// キャッシュ確認関数
-async function checkCache(key: string): Promise<any | null> {
-  return cacheStore[key] || null;
-}
-
-// キャッシュ保存関数
-async function saveToCache(key: string, data: any): Promise<void> {
-  cacheStore[key] = data;
-}
-
 export default async function BlogListPage() {
+  // キャッシュキーのタグとして'blog'を設定
+  revalidateTag('blog');
+
   const blogData = await client.get({
     endpoint: 'blog',
     queries: {
@@ -55,16 +46,6 @@ export default async function BlogListPage() {
     },
   });
 
-  // `updatedAt`を基にしたキャッシュキーの作成
-  const cacheKey = `blogListCacheKey_${blogData.contents.map((item: any) => item.updatedAt).join('_')}`;
-
-  // キャッシュの確認
-  const cachedData = await checkCache(cacheKey);
-  if (cachedData) {
-    return cachedData; // キャッシュが有効ならそのデータを返す
-  }
-
-  // キャッシュが無効または更新があった場合、データを再取得
   const blogItems: BlogItem[] = blogData.contents.map((item: any) => ({
     id: item.id,
     title: item.title,
@@ -85,7 +66,7 @@ export default async function BlogListPage() {
     content: item.content,
   }));
 
-  const response = (
+  return (
     <main className={styles.main}>
       <div style={{ paddingTop: '80px', paddingBottom: '100px' }}>
         <div className="w-full px-5 md:px-20">
@@ -105,9 +86,4 @@ export default async function BlogListPage() {
       </div>
     </main>
   );
-
-  // 新しいデータをキャッシュに保存
-  await saveToCache(cacheKey, response);
-
-  return response;
 }

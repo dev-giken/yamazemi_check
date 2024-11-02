@@ -1,25 +1,24 @@
 import { NextResponse } from 'next/server';
-import { revalidateTag } from 'next/cache'; // revalidateTagをインポート
+import { revalidateTag } from 'next/cache'; 
 
 export async function POST(req) {
-    const { searchParams } = new URL(req.url);
-    const id = searchParams.get('id');
-    const updatedAt = searchParams.get('updatedAt');
+    const body = await req.json();
+    const api = body.api;
 
-    console.log('Received revalidate request:', { id, updatedAt });
+    console.log('Received revalidate request:', { api });
 
-    if (updatedAt) {
+    // blog APIの場合にのみキャッシュ更新を行う
+    if (api === 'blog') {
         try {
-            // 再生成のタグ指定
-            revalidateTag(`/blog/${id}`);
-            console.log('Revalidation successful for:', `/blog/${id}`);
+            revalidateTag('blog');  // blog全体に対応するタグを指定
+            console.log('Revalidation successful for blog list');
             return NextResponse.json({ revalidated: true });
         } catch (err) {
-            console.error('Revalidation error:', err); // エラー内容をログに出力
+            console.error('Revalidation error:', err);
             return NextResponse.json({ message: 'Error revalidating', error: err.message }, { status: 500 });
         }
     } else {
-        console.warn('No update detected in revalidate request');
+        console.warn('No update detected for revalidate request');
         return NextResponse.json({ message: 'No update detected' }, { status: 400 });
     }
 }
