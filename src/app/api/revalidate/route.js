@@ -7,11 +7,19 @@ export async function POST(req) {
 
     console.log('Received revalidate request:', { api, id });
 
-    // blog APIの場合にのみキャッシュ更新を行う
-    if (api === 'blog' && id) {
+    if (id) {
         try {
-            await revalidatePath(`/blog/${id}`);  // IDに基づいて個別記事ページを再生成
-            console.log(`Revalidation successful for blog post: /blog/${id}`);
+            if (api === 'blog') {
+                await revalidatePath(`/blog/${id}`);
+                console.log(`Revalidation successful for blog post: /blog/${id}`);
+            } else if (api === 'news') {
+                await revalidatePath(`/news/${id}`);
+                console.log(`Revalidation successful for news post: /news/${id}`);
+            } else {
+                console.warn(`No revalidation performed. Unsupported API: ${api}`);
+                return NextResponse.json({ message: 'Unsupported API' }, { status: 400 });
+            }
+
             return NextResponse.json({ revalidated: true });
         } catch (err) {
             console.error('Revalidation error:', err);

@@ -32,9 +32,6 @@ type BlogItem = {
 };
 
 export default async function BlogListPage() {
-  // キャッシュタグを使用
-  // revalidateTag('blog');
-
   const blogData = await client.get({
     endpoint: 'blog',
     queries: {
