@@ -4,20 +4,22 @@ import { revalidateTag } from 'next/cache';
 export async function POST(req) {
     const body = await req.json();
     const api = body.api;
-    const id = body.id;  // 受け取ったデータからidを取得
+    const id = body.id;
 
     console.log('Received revalidate request:', { api, id });
 
-    // blog APIの場合にのみキャッシュ更新を行う
     if (api === 'blog') {
         try {
-            await revalidateTag('blog');  // 一覧ページ全体に対応するタグ
+            // 一覧ページ用のキャッシュタグを再生成
+            await revalidateTag('blog');
+            console.log('Revalidation successful for blog list');
+
+            // 個別記事用のキャッシュタグを再生成
             if (id) {
-                // 個別ページも再生成するため、固有のタグを使用
                 await revalidateTag(`blog_${id}`);
                 console.log(`Revalidation successful for blog post with id: ${id}`);
             }
-            console.log('Revalidation successful for blog list');
+
             return NextResponse.json({ revalidated: true });
         } catch (err) {
             console.error('Revalidation error:', err);
