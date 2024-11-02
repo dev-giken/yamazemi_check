@@ -3,8 +3,7 @@ import { client } from '@/lib/client';
 import styles from '@/styles/BlogContent.module.css';
 import Link from 'next/link';
 import { Breadcrumb, BreadcrumbList, BreadcrumbLink, BreadcrumbItem, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import * as Avatar from '@radix-ui/react-avatar'; // Radix UIのAvatarをインポート
-import { revalidateTag } from 'next/cache';
+import * as Avatar from '@radix-ui/react-avatar';
 
 type BlogItem = {
   id: string;

@@ -1,25 +1,17 @@
 import { NextResponse } from 'next/server';
-import { revalidateTag } from 'next/cache';
+import { revalidatePath } from 'next/cache';
 
 export async function POST(req) {
     const body = await req.json();
-    const api = body.api;
-    const id = body.id;
+    const { api, id } = body;
 
     console.log('Received revalidate request:', { api, id });
 
-    if (api === 'blog') {
+    // blog APIの場合にのみキャッシュ更新を行う
+    if (api === 'blog' && id) {
         try {
-            // 一覧ページ用のキャッシュタグを再生成
-            await revalidateTag('blog');
-            console.log('Revalidation successful for blog list');
-
-            // 個別記事用のキャッシュタグを再生成
-            if (id) {
-                await revalidateTag(`blog_${id}`);
-                console.log(`Revalidation successful for blog post with id: ${id}`);
-            }
-
+            await revalidatePath(`/blog/${id}`);  // IDに基づいて個別記事ページを再生成
+            console.log(`Revalidation successful for blog post: /blog/${id}`);
             return NextResponse.json({ revalidated: true });
         } catch (err) {
             console.error('Revalidation error:', err);
