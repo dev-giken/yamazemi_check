@@ -30,8 +30,6 @@ export default async function BlogPostPage({ params }: Params) {
     contentId: params.id,
   });
 
-  console.log('取得したブログデータ:', blogData);
-
   if (!blogData) {
     notFound();
   }
