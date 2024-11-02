@@ -9,8 +9,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
+import { revalidateTag } from 'next/cache'; // revalidateTagをインポート
 
-// BlogItem型の定義
 type BlogItem = {
   id: string;
   title: string;
@@ -32,6 +32,9 @@ type BlogItem = {
 };
 
 export default async function BlogListPage() {
+  // キャッシュタグを使用
+  revalidateTag('blog');
+
   const blogData = await client.get({
     endpoint: 'blog',
     queries: {

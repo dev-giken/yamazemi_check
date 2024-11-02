@@ -4,7 +4,7 @@ import styles from '@/styles/BlogContent.module.css';
 import Link from 'next/link';
 import { Breadcrumb, BreadcrumbList, BreadcrumbLink, BreadcrumbItem, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import * as Avatar from '@radix-ui/react-avatar'; // Radix UIのAvatarをインポート
-import { revalidateTag } from 'next/cache'; // revalidateTagをインポート
+import { revalidateTag } from 'next/cache';
 
 type BlogItem = {
   id: string;
@@ -14,9 +14,9 @@ type BlogItem = {
   category: string[];
   content: string;
   profile_img: {
-    url: string; // プロフィール画像のURL
+    url: string;
   };
-  author: string | string[];  // 著者名（文字列または配列）
+  author: string | string[];
 };
 
 type Params = {
@@ -26,6 +26,9 @@ type Params = {
 };
 
 export default async function BlogPostPage({ params }: Params) {
+  // 動的にタグを設定して再生成をトリガー
+  revalidateTag(`blog_${params.id}`);
+
   const blogData = await client.get({
     endpoint: 'blog',
     contentId: params.id,
@@ -38,11 +41,6 @@ export default async function BlogPostPage({ params }: Params) {
   }
 
   const blogItem: BlogItem = blogData;
-
-  // 動的にタグを設定して再生成をトリガー
-  revalidateTag(`/blog/${params.id}`);
-
-  // 著者が配列か文字列かを確認して、最初の著者名を取得
   const authorName = Array.isArray(blogItem.author) ? blogItem.author[0] : blogItem.author;
 
   return (
@@ -83,7 +81,7 @@ export default async function BlogPostPage({ params }: Params) {
           <Avatar.Root className={styles.AvatarRoot}>
             {blogItem.profile_img?.url ? (
               <Avatar.Image
-                src={blogItem.profile_img.url} // プロフィール画像のURLを使う
+                src={blogItem.profile_img.url}
                 alt={authorName}
                 className={styles.AvatarImage}
               />
@@ -96,19 +94,12 @@ export default async function BlogPostPage({ params }: Params) {
           <span className="text-gray-700">{authorName}</span>
         </div>
 
-        {/* 点線の区切り */}
         <hr className="border-dashed border-gray-300 my-4" />
-
-        {/* 本文 */}
         <article className={styles.articleContent} dangerouslySetInnerHTML={{ __html: blogItem.content }}></article>
 
         <div className={styles.buttonContainer}>
-          <Link href="/" className={styles.homeLink}>
-            ホームへ戻る
-          </Link>
-          <Link href="/blog" className={styles.viewAllText}>
-            一覧を見る
-          </Link>
+          <Link href="/" className={styles.homeLink}>ホームへ戻る</Link>
+          <Link href="/blog" className={styles.viewAllText}>一覧を見る</Link>
         </div>
       </div>
     </main>

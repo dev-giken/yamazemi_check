@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { revalidateTag } from 'next/cache'; 
+import { revalidateTag } from 'next/cache';
 
 export async function POST(req) {
     const body = await req.json();
@@ -10,7 +10,7 @@ export async function POST(req) {
     // blog APIの場合にのみキャッシュ更新を行う
     if (api === 'blog') {
         try {
-            revalidateTag('blog');  // blog全体に対応するタグを指定
+            await revalidateTag('blog');  // blog全体に対応するタグを指定
             console.log('Revalidation successful for blog list');
             return NextResponse.json({ revalidated: true });
         } catch (err) {
