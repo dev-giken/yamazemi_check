@@ -1,5 +1,3 @@
-// app/blog/page.tsx
-
 import BlogList from '@/components/ui/BlogList';
 import { client } from '@/lib/microcms';
 import styles from '@/styles/BlogList.module.css';
@@ -11,7 +9,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
-import { revalidateTag } from 'next/cache';
 
 // BlogItem型の定義
 type BlogItem = {
@@ -35,9 +32,6 @@ type BlogItem = {
 };
 
 export default async function BlogListPage() {
-  // キャッシュキーのタグとして'blog'を設定
-  revalidateTag('blog');
-
   const blogData = await client.get({
     endpoint: 'blog',
     queries: {
