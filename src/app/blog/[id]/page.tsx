@@ -27,7 +27,7 @@ type Params = {
 
 export default async function BlogPostPage({ params }: Params) {
   // 動的にタグを設定して再生成をトリガー
-  //revalidateTag(`blog_${params.id}`);
+  // revalidateTag(`blog_${params.id}`);
 
   const blogData = await client.get({
     endpoint: 'blog',
