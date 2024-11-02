@@ -4,6 +4,7 @@ import styles from '@/styles/BlogContent.module.css';
 import Link from 'next/link';
 import { Breadcrumb, BreadcrumbList, BreadcrumbLink, BreadcrumbItem, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import * as Avatar from '@radix-ui/react-avatar'; // Radix UIのAvatarをインポート
+import { revalidateTag } from 'next/cache'; // revalidateTagをインポート
 
 type BlogItem = {
   id: string;
@@ -37,6 +38,9 @@ export default async function BlogPostPage({ params }: Params) {
   }
 
   const blogItem: BlogItem = blogData;
+
+  // 動的にタグを設定して再生成をトリガー
+  revalidateTag(`/blog/${params.id}`);
 
   // 著者が配列か文字列かを確認して、最初の著者名を取得
   const authorName = Array.isArray(blogItem.author) ? blogItem.author[0] : blogItem.author;
