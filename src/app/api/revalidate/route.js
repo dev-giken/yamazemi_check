@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache'; // revalidateTagをインポート
 
-export async function GET(req) {
+export async function POST(req) {
     const { searchParams } = new URL(req.url);
     const id = searchParams.get('id');
     const updatedAt = searchParams.get('updatedAt');
