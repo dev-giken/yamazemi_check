@@ -9,6 +9,7 @@ type BlogItem = {
   id: string;
   title: string;
   publishedAt: string;
+  updatedAt: string;
   category: string[];
   content: string;
   profile_img: {
@@ -28,6 +29,8 @@ export default async function BlogPostPage({ params }: Params) {
     endpoint: 'blog',
     contentId: params.id,
   });
+
+  console.log('取得したブログデータ:', blogData);
 
   if (!blogData) {
     notFound();

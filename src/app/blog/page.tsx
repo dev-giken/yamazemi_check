@@ -59,7 +59,6 @@ export default async function BlogListPage() {
       category: item.category,
       content: item.content,
     }));
-    console.log('初期ブログアイテム:', blogItems);
   
     return (
       <main className={styles.main}>
