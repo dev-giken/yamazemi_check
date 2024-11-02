@@ -56,9 +56,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="canonical" href="https://www.yamazemi.info" />
 
-        {/* Google Analyticsのトラッキングコードを追加 */}
         <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
+          src="https://www.googletagmanager.com/gtag/js?id=G-KR5F9M9G5E"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -67,7 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');
+            gtag('config', 'G-KR5F9M9G5E');
           `}
         </Script>
       </head>
