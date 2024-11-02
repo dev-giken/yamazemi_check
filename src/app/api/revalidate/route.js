@@ -9,7 +9,7 @@ export async function GET(req) {
 
     if (updatedAt) {
         try {
-            await res.unstable_revalidate(`/blog/${id}`);
+            await res.revalidate(`/blog/${id}`);
             console.log('Revalidation successful for:', `/blog/${id}`);
             return NextResponse.json({ revalidated: true });
         } catch (err) {
