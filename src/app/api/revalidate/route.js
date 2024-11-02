@@ -9,7 +9,8 @@ export async function GET(req) {
 
     if (updatedAt) {
         try {
-            await res.revalidate(`/blog/${id}`);
+            // 再生成のパス指定を行います
+            await NextResponse.revalidate(`/blog/${id}`);
             console.log('Revalidation successful for:', `/blog/${id}`);
             return NextResponse.json({ revalidated: true });
         } catch (err) {
