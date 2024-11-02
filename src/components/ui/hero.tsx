@@ -54,7 +54,6 @@ const Hero = () => {
               alt="Image 3"
               fill
               style={{ objectFit: 'cover', maxWidth: '100%' }}
-              loading='lazy'
             />
           </div>
         </SwiperSlide>
