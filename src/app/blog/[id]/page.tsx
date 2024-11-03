@@ -50,7 +50,7 @@ export default async function BlogPostPage({ params }: Params) {
 
   return (
     <main className={styles.main}>
-      <div style={{ paddingTop: '60px', paddingBottom: '100px', paddingLeft: '15px', paddingRight: '15px' }}>
+      <div style={{ paddingTop: '60px', paddingBottom: '40px', paddingLeft: '15px', paddingRight: '15px' }}>
         <Breadcrumb>
           <BreadcrumbList className="flex text-gray-500 text-[10px]">
             <BreadcrumbItem><BreadcrumbLink href="/">ホーム</BreadcrumbLink></BreadcrumbItem>

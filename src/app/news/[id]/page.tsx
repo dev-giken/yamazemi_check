@@ -27,8 +27,8 @@ export default async function NewsDetail({ params }: { params: { id: string } })
 
     return (
       <main className={styles.main} id="top">
-        <div style={{ paddingTop: '80px', paddingBottom: '100px'}}>
-            <div className="w-full py-2 px-10">
+        <div style={{ paddingTop: '60px', paddingBottom: '40px', paddingLeft: '15px', paddingRight: '15px' }}>
+            <div className="w-full py-2">
             <Breadcrumb>
                 <BreadcrumbList className="flex text-gray-500 text-[10px]">
                 <BreadcrumbItem>
@@ -45,7 +45,7 @@ export default async function NewsDetail({ params }: { params: { id: string } })
                 </BreadcrumbList>
             </Breadcrumb>
             </div>
-            <div className="flex flex-col justify-between p-10 md:p-[100px]">
+            <div className="flex flex-col justify-between">
                 <div className={styles.articleContent}>
                     <h1 className="mb-4">{newsItem.title}</h1>
                     <p className="text-gray-600 mb-2">
