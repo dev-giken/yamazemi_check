@@ -1,3 +1,4 @@
+// blog/[id]/page.tsx
 import { notFound } from 'next/navigation';
 import { client } from '@/lib/client';
 import styles from '@/styles/BlogContent.module.css';
@@ -38,15 +39,26 @@ export default async function BlogPostPage({ params }: Params) {
   const blogItem: BlogItem = blogData;
   const authorName = Array.isArray(blogItem.author) ? blogItem.author[0] : blogItem.author;
 
-  // 前後記事を取得し、現在の記事IDを除外
-  const allPosts = await client.get({
-    endpoint: 'blog',
-    queries: { orders: '-publishedAt' }
-  });
+  // 全記事を取得し、offsetとlimitでページネーションを設定
+  const limit = 100;
+  let offset = 0;
+  let allPosts: any[] = [];
+  let hasMore = true;
 
-  const postIndex = allPosts.contents.findIndex((post: BlogItem) => post.id === blogItem.id);
-  const previousPost = allPosts.contents[postIndex + 1] || null;
-  const nextPost = allPosts.contents[postIndex - 1] || null;
+  // 全記事を取得するためのループ
+  while (hasMore) {
+    const response = await client.get({
+      endpoint: 'blog',
+      queries: { orders: '-publishedAt', limit, offset },
+    });
+    allPosts = allPosts.concat(response.contents);
+    hasMore = response.contents.length === limit;
+    offset += limit;
+  }
+
+  const postIndex = allPosts.findIndex((post: BlogItem) => post.id === blogItem.id);
+  const previousPost = allPosts[postIndex + 1] || null;
+  const nextPost = allPosts[postIndex - 1] || null;
 
   return (
     <main className={styles.main}>
