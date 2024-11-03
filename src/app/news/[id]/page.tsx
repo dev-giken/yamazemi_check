@@ -60,10 +60,7 @@ export default async function NewsDetail({ params }: { params: { id: string } })
                     </div>
                 </div>
                 <div className={styles.buttonContainer}>
-                    <Link href="/" className={styles.homeLink}>
-                        ホームへ戻る
-                    </Link>
-                    <Link href="/news" className={styles.viewAllText}>
+                    <Link href="/list" className={styles.customViewAllButton}>
                         一覧を見る
                     </Link>
                 </div>

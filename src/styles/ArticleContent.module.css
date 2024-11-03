@@ -195,3 +195,24 @@
     font-weight: bold;
     color: #004999;
 }
+
+.customViewAllButton {
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;            /* 黒色に変更 */
+    text-decoration: none;
+    border: 1px solid #000;
+    border-radius: 24px;    /* 四隅の丸みを強調 */
+    padding: 0.5rem 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;     /* コンテンツの幅に合わせる */
+    margin: 0 auto;         /* 横方向で中央揃え */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.customViewAllButton:hover {
+    background-color: rgba(0, 102, 204, 0.1);
+    transform: scale(1.05); /* ホバー時のエフェクト */
+}
