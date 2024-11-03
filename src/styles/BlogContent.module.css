@@ -217,12 +217,12 @@
   }
 
   .relatedPostTitle {
-    font-size: 0.55rem !important;
+    font-size: 0.5rem !important;
     margin: 0.1rem 0;
   }
 
   .relatedPosition {
-    font-size: 0.5rem !important;
+    font-size: 0.45rem !important;
     margin: 0.1rem 0;
   }
 
@@ -236,7 +236,7 @@
   }
 
   .relatedAuthorName {
-    font-size: 0.5rem !important;
+    font-size: 0.45rem !important;
   }
 
   .relatedDateCategory {
