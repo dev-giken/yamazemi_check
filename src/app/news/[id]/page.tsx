@@ -60,7 +60,7 @@ export default async function NewsDetail({ params }: { params: { id: string } })
                     </div>
                 </div>
                 <div className={styles.buttonContainer}>
-                    <Link href="/list" className={styles.customViewAllButton}>
+                    <Link href="/news" className={styles.customViewAllButton}>
                         一覧を見る
                     </Link>
                 </div>
