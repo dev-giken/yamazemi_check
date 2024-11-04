@@ -32,8 +32,8 @@ export default async function Home() {
 
   return (
     <>
-      <main>
-        <div style={{ paddingTop: '60px', paddingBottom: '200px'}}>
+      <main style={{ maxWidth: '1000px', margin: '0 auto' }}>
+        <div style={{ paddingTop: '80px', paddingBottom: '400px'}}>
             <div className="w-full py-3 px-10">
                 <Breadcrumb>
                     <BreadcrumbList className="flex text-gray-500 text-[10px]">
@@ -48,7 +48,7 @@ export default async function Home() {
                 </Breadcrumb>
             </div>
             <div className="flex flex-col justify-between">
-                <div className="px-8 py-40 text-xs">
+                <div className="px-8 text-xs">
                     {mainItems
                     .filter((item: MainContent) => {
                         console.log(item);
