@@ -32,8 +32,8 @@ export default async function Home() {
 
   return (
     <>
-      <main>
-        <div style={{ paddingTop: '60px' }}>
+      <main style={{ maxWidth: '1000px', margin: '0 auto' }}>
+        <div style={{ paddingTop: '80px'}}>
             <div className="w-full py-3 px-10">
                 <Breadcrumb>
                     <BreadcrumbList className="flex text-gray-500 text-[10px]">

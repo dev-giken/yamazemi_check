@@ -49,31 +49,33 @@ export default async function Home() {
         <div className="flex flex-col items-center justify-between">
           <Hero />
         </div>
-        <div className="w-full py-3 px-10">
-          <BreadcrumbList className="flex text-gray-500 text-[10px]">
-            <BreadcrumbItem>
-              <BreadcrumbPage>ホーム</BreadcrumbPage>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-          </BreadcrumbList>
-        </div>
-        <div className="flex flex-col items-center justify-between">
+        <div className="flex flex-col items-center justify-between" >
           <NewsSection newsItems={newsItems} />
-          <div className="p-8 text-xs">
-            {mainItems
-              .filter((item: MainContent) => {
-                return item.category_1.includes('トップ') && item.category_2.includes('none');
-              })
-              .map((item: MainContent) => {
-                return (
-                  <div key={item.id}>
-                    <h3 className="font-bold text-xl">{item.title}</h3>
-                    <div className={styles.articleContent}>
-                      <div dangerouslySetInnerHTML={{ __html: item.contents }} />
+          <div style={{ maxWidth: '1000px' }}>
+            <div className="py-3 px-10">
+            <BreadcrumbList className="flex text-gray-500 text-[10px]">
+              <BreadcrumbItem>
+                <BreadcrumbPage>ホーム</BreadcrumbPage>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+            </BreadcrumbList>
+            </div>
+            <div className="p-8 text-xs" style={{ maxWidth: '1000px' }}>
+              {mainItems
+                .filter((item: MainContent) => {
+                  return item.category_1.includes('トップ') && item.category_2.includes('none');
+                })
+                .map((item: MainContent) => {
+                  return (
+                    <div key={item.id}>
+                      <h3 className="font-bold text-xl">{item.title}</h3>
+                      <div className={styles.articleContent}>
+                        <div dangerouslySetInnerHTML={{ __html: item.contents }} />
+                      </div>
                     </div>
-                  </div>
-                );
-            })}
+                  );
+              })}
+            </div>
           </div>
         </div>
       </main>

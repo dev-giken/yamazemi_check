@@ -33,44 +33,46 @@ export default async function Home() {
   return (
     <>
       <main>
-        <div style={{ paddingTop: '60px' }}>
-            <div className="w-full py-3 px-10">
-                <Breadcrumb>
-                    <BreadcrumbList className="flex text-gray-500 text-[10px]">
-                        <BreadcrumbItem>
-                        <BreadcrumbLink href="/">ホーム</BreadcrumbLink>
-                        </BreadcrumbItem>
-                        <BreadcrumbSeparator />
-                        <BreadcrumbItem>
-                        <BreadcrumbPage>三田論</BreadcrumbPage>
-                        </BreadcrumbItem>
-                    </BreadcrumbList>
-                </Breadcrumb>
-            </div>
-        </div>
-        <div style={{ paddingBottom: '140px'}}>
-            <div className="flex flex-col items-center justify-between">
-                <div className="px-8 text-xs">
-                    {mainItems
-                    .filter((item: MainContent) => {
-                        console.log(item);
-                        return item.title === ('三田祭論文') && item.category_1.includes('セカンドトップ') && item.category_2.includes('活動紹介');
-                    })
-                    .map((item: MainContent) => {
-                        console.log("Mapping item:", item);
-                        return (
-                        <div key={item.id}>
-                            {/*<h3 className="font-bold text-2xl">{item.title}</h3>*/}
-                            <div className={styles.AboutProfessor}>
-                                <div className="table-container">
-                                    <div dangerouslySetInnerHTML={{ __html: item.contents }} />
-                                </div>
-                            </div>
-                        </div>
-                        );
-                    })}
-                </div>
-            </div>
+        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <div style={{ paddingTop: '80px' }}>
+              <div className="py-3 px-10">
+                  <Breadcrumb>
+                      <BreadcrumbList className="flex text-gray-500 text-[10px]">
+                          <BreadcrumbItem>
+                          <BreadcrumbLink href="/">ホーム</BreadcrumbLink>
+                          </BreadcrumbItem>
+                          <BreadcrumbSeparator />
+                          <BreadcrumbItem>
+                          <BreadcrumbPage>三田論</BreadcrumbPage>
+                          </BreadcrumbItem>
+                      </BreadcrumbList>
+                  </Breadcrumb>
+              </div>
+          </div>
+          <div style={{ paddingBottom: '140px'}}>
+              <div className="flex flex-col items-center justify-between">
+                  <div className="px-8 text-xs">
+                      {mainItems
+                      .filter((item: MainContent) => {
+                          console.log(item);
+                          return item.title === ('三田祭論文') && item.category_1.includes('セカンドトップ') && item.category_2.includes('活動紹介');
+                      })
+                      .map((item: MainContent) => {
+                          console.log("Mapping item:", item);
+                          return (
+                          <div key={item.id}>
+                              {/*<h3 className="font-bold text-2xl">{item.title}</h3>*/}
+                              <div className={styles.AboutProfessor}>
+                                  <div className="table-container">
+                                      <div dangerouslySetInnerHTML={{ __html: item.contents }} />
+                                  </div>
+                              </div>
+                          </div>
+                          );
+                      })}
+                  </div>
+              </div>
+          </div>
         </div>
       </main>
     </>
