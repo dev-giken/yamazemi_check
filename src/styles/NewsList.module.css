@@ -1,14 +1,15 @@
 /* styles/NewsList.module.css */
 
 .main {
-    padding-top: 60px;
-    padding-bottom: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
   }
   
   .container {
-    max-width: 800px;
+    max-width: 1250px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 8px;
   }
   
   .title {
