@@ -137,3 +137,14 @@
     display: block;
     margin: 0 auto; /* 画像を中央に配置 */
 }
+
+
+.AboutProfessor iframe {
+    position: relative;
+    left: 50%;
+    transform: translateX(7.5%);
+    width: 85%;
+    max-width: clamp(300px, 85%, 1000px);
+    height: 500px;
+    border: none;
+}
