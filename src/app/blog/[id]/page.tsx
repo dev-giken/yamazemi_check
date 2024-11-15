@@ -94,7 +94,7 @@ export default async function BlogPostPage({ params }: Params) {
               </Avatar.Fallback>
             )}
           </Avatar.Root>
-          <span className="text-gray-700">{authorName || "作者不明"}</span>
+          <span className={`${styles.authorName} text-gray-700`}>{authorName || "作者不明"}</span>
         </div>
 
         <hr className="border-dashed border-gray-300 my-4" />

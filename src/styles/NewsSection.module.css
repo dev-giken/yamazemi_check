@@ -151,9 +151,52 @@
 }
 
 .viewAllText {
-  font-size: 14px;
-  font-weight: 900; /* より太く */
-  color: black; /* 黒色に変更 */
-  text-decoration: underline; /* 常に下線を表示 */
+  font-size: clamp(9px, 1.5vw, 12px); /* フォントサイズを画面幅に応じて調整 */
+  font-weight: 800;
+  color: #FFF;
+  background-color: #333333; /* 柔らかい黒に変更 */
+  text-decoration: none;
+  border: 1px solid #333333; /* 枠線も同じ色に */
+  border-radius: 10px; /* 角丸を画面幅に応じて調整 */
+  padding: clamp(0.2rem, 1vw, 0.4rem) clamp(0.8rem, 2vw, 1.2rem); /* パディングを上下・左右でレスポンシブに */
+  min-width: 120px; /* 最小幅を確保 */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
   cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+.viewAllText:hover {
+  background-color: #444444; /* ホバー時は少し明るい柔らかい黒に変更 */
+  color: transparent;
+  transform: scale(1.03);
+}
+
+/* ホバー時にアイコンを中央に表示 */
+.viewAllText:hover::after {
+  content: "＞"; /* アイコンとして "＞" を表示 */
+  color: #FFF;
+  font-weight: normal;
+  position: absolute;
+  top: 50%; /* ボタンの中央に配置 */
+  left: 50%;
+  transform: translate(-50%, -50%); /* 完全に中央に配置 */
+  opacity: 1; /* 表示 */
+  transition: opacity 0.3s ease; /* スムーズなフェードイン */
+}
+
+/* 非ホバー時はアイコンを非表示に */
+.viewAllText::after {
+  content: "＞";
+  color: #FFF;
+  font-weight: normal;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 完全に中央に配置 */
+  opacity: 0; /* 非表示 */
+  transition: opacity 0.3s ease; /* スムーズなフェードイン */
 }

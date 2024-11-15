@@ -48,7 +48,7 @@ type PaginationLinkProps = {
 const PaginationLink = ({
   className,
   isActive,
-  size = "default", // デフォルトサイズを "default" に変更
+  size = "default",
   onClick,
   children,
   ...props
@@ -56,14 +56,21 @@ const PaginationLink = ({
   <button
     onClick={onClick}
     aria-current={isActive ? "page" : undefined}
+    disabled={props.disabled} // `disabled`属性を明示的に受け取る
     className={cn(
-      "flex items-center justify-center px-4 py-2", // パディングを調整
+      "flex items-center justify-center px-4 py-2 text-base", // 基本のフォントサイズ
+      props.disabled
+        ? "opacity-50 cursor-not-allowed text-base" // 強制的にフォントサイズを指定
+        : "",
       buttonVariants({
         variant: isActive ? "outline" : "ghost",
         size,
       }),
       className
     )}
+    style={{
+      fontSize: props.disabled ? "1rem" : undefined, // 無効時のフォントサイズを強制
+    }}
     {...props}
   >
     {children}
@@ -74,12 +81,18 @@ PaginationLink.displayName = "PaginationLink";
 const PaginationPrevious = ({
   className,
   onClick,
+  disabled,
   ...props
-}: React.ComponentProps<typeof PaginationLink>) => (
+}: React.ComponentProps<typeof PaginationLink> & { disabled?: boolean }) => (
   <PaginationLink
     onClick={onClick}
-    size="default" // サイズを "default" に設定
-    className={cn("gap-1 pl-2.5", className)}
+    size="default"
+    disabled={disabled}
+    className={cn(
+      "gap-1 pl-2.5 text-base", // `text-base`を追加
+      disabled ? "opacity-50 cursor-not-allowed text-base" : "", // 無効状態にフォントサイズを明示
+      className
+    )}
     {...props}
   >
     <ChevronLeft className="h-4 w-4" />
@@ -91,12 +104,18 @@ PaginationPrevious.displayName = "PaginationPrevious";
 const PaginationNext = ({
   className,
   onClick,
+  disabled,
   ...props
-}: React.ComponentProps<typeof PaginationLink>) => (
+}: React.ComponentProps<typeof PaginationLink> & { disabled?: boolean }) => (
   <PaginationLink
     onClick={onClick}
-    size="default" // サイズを "default" に設定
-    className={cn("gap-1 pr-2.5", className)}
+    size="default"
+    disabled={disabled}
+    className={cn(
+      "gap-1 pr-2.5 text-base", // `text-base`を追加
+      disabled ? "opacity-50 cursor-not-allowed text-base" : "", // 無効状態にフォントサイズを明示
+      className
+    )}
     {...props}
   >
     <span>Next</span>

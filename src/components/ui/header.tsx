@@ -145,7 +145,7 @@ export default function Header() {
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link href="/application/events" className="bg-gray-800 text-white hover:bg-gray-700 p-2 rounded transition-colors duration-200">
+                        <Link href="/application/events" className="block w-[95%] bg-gray-800 text-white hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                           各種イベント
                         </Link>
                       </NavigationMenuLink>

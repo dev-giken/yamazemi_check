@@ -96,3 +96,9 @@ html {
   margin: 0 auto;
   padding: 2rem 1rem;
 }
+
+button:disabled {
+  font-size: inherit; /* 親要素のフォントサイズを継承 */
+  opacity: 0.5;
+  cursor: not-allowed;
+}

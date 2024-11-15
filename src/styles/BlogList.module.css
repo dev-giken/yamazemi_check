@@ -14,7 +14,28 @@
 }
 
 .paginationContainer {
-    margin-top: 20px;
+    margin-top: 60px;
+}
+
+.paginationContainer button {
+    font-size: 0.8rem;
+}
+
+.paginationContainer button:disabled,
+.paginationContainer .disabledPagination {
+    opacity: 0.5; /* 視覚的に無効状態を示す */
+    cursor: not-allowed; /* 無効状態でクリックできないことを示す */
+    font-size: 0.8rem; /* フォントサイズを明示的に指定 */
+}
+
+@media (max-width: 600px) {
+    .paginationContainer button {
+        padding: 0.3rem 0.6rem;
+    }
+
+    .paginationContainer {
+        padding: 0 1.5rem; /* ページネーション全体の左右余白をさらに小さく */
+    }
 }
 
 .title {
@@ -189,12 +210,6 @@
     .textOverlay {
         height: calc(100% * 1 / 3); /* Adjust height of overlay on mobile */
     }
-}
-
-/* Pagination の無効状態のスタイル */
-.disabledPagination {
-    opacity: 0.5;
-    cursor: not-allowed;
 }
 
 /* カテゴリタグのスタイル */
