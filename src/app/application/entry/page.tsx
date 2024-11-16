@@ -1,5 +1,6 @@
 import { Breadcrumb, BreadcrumbList, BreadcrumbLink, BreadcrumbItem, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { client } from "@/lib/client";
+import ESDownloadButton from "@/components/ui/ESDownloadButton";
 import styles from '../../../styles/AboutProfessor.module.css';
 
 type MainContent = {
@@ -49,7 +50,7 @@ export default async function Home() {
             </div>
         </div>
         <div className="flex flex-col justify-between">
-          <div className="px-8 py-20">
+          <div className="px-8">
             {mainItems
               .filter((item: MainContent) => {
                 console.log(item);
@@ -68,6 +69,9 @@ export default async function Home() {
                   </div>
                 );
             })}
+          </div>
+          <div className="mt-0.5 text-center">
+            <ESDownloadButton />
           </div>
         </div>
       </main>

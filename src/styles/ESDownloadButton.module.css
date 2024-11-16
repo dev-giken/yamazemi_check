@@ -1,0 +1,212 @@
+.container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.mainButton {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1rem, 3vw, 1.5rem); /* レスポンシブ */
+    cursor: pointer;
+    font-size: clamp(0.8rem, 2.5vw, 1rem); /* レスポンシブ */
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.mainButton:hover {
+    background-color: #444;
+}
+
+.downloadButton {
+    flex: 1;
+    background-color: #ccc; /* デフォルトの無効状態はグレー */
+    color: white;
+    border: 2px solid #ccc; /* 無効状態の枠線 */
+    padding: clamp(0.6rem, 2vw, 0.8rem); /* レスポンシブ */
+    font-size: clamp(0.8rem, 2.5vw, 1rem); /* レスポンシブ */
+    cursor: not-allowed; /* 無効状態ではカーソルを表示しない */
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.downloadButton.enabled {
+    background-color: black; /* チェックされた時点で黒 */
+    border-color: black;
+    cursor: pointer; /* 有効化 */
+}
+
+.downloadButton.enabled:hover {
+    background-color: #4caf50; /* ホバーで緑色に */
+    border-color: #4caf50; /* 枠線も緑色に */
+}
+
+.popupOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.card {
+    background-color: #fff;
+    padding: clamp(1rem, 2vw, 2rem); /* レスポンシブ */
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    height: clamp(300px, 60vh, 500px); /* レスポンシブ */
+    text-align: center;
+    position: relative;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentContainer {
+    display: block;
+    width: 100%;
+}
+
+.content {
+    padding: clamp(0.8rem, 2vw, 1rem); /* レスポンシブ */
+}
+
+.scrollArea {
+    margin: 1rem 0;
+    height: clamp(200px, 50vh, 250px); /* レスポンシブ */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: clamp(0.8rem, 2vw, 1rem); /* レスポンシブ */
+    text-align: left;
+}
+
+.scrollArea p {
+    font-size: clamp(0.7rem, 2vw, 0.8rem); /* レスポンシブ */
+    line-height: 1.5;
+}
+
+.checkboxContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 1rem 0;
+}
+
+.checkboxLabel {
+    font-size: clamp(0.6rem, 1.5vw, 0.7rem); /* レスポンシブ */
+    text-align: left;
+    padding: 0.4rem;
+}
+
+.buttonArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 1.5rem;
+}
+
+.downloadContent {
+    width: 85%;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.downloadTitle {
+    font-weight: bold;
+    font-size: clamp(1rem, 2.5vw, 1.5rem); /* レスポンシブ */
+    margin-bottom: 1rem;
+}
+
+.downloadText {
+    text-align: left;
+    font-size: clamp(0.7rem, 2vw, 0.9rem); /* レスポンシブ */
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.downloadContent h1 {
+    font-size: clamp(1.2rem, 3vw, 2rem); /* レスポンシブ */
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.downloadContent h2 {
+    font-size: clamp(1rem, 2.5vw, 1.2rem); /* レスポンシブ */
+    margin-top: 1.8rem;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+    background-color: #f0f0f0;
+    width: 100%;
+    padding: 0.2rem 0.5rem;
+}
+
+.downloadContent h3 {
+    font-size: clamp(0.9rem, 2vw, 1.2rem); /* レスポンシブ */
+    margin-top: 1.5rem;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+}
+
+.downloadContent p {
+    margin-bottom: 1rem;
+    font-size: clamp(0.7rem, 2vw, 0.9rem); /* レスポンシブ */
+    line-height: 1.6;
+    text-align: left;
+}
+
+.downloadContent ol {
+    list-style-type: decimal;
+    list-style-position: inside;
+    font-size: clamp(0.7rem, 2vw, 0.9rem); /* レスポンシブ */
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.downloadContent ul {
+    font-size: clamp(0.7rem, 2vw, 0.9rem); /* レスポンシブ */
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.downloadContent a {
+    font-size: clamp(0.7rem, 2vw, 0.9rem); /* レスポンシブ */
+    line-height: 1.6;
+    text-align: left;
+    color: #0066cc;
+    text-decoration: underline;
+}
