@@ -80,12 +80,7 @@ const Footer = () => {
                 <ul className="ml-4">
                   <li>
                     <Link href="/application/entry" className="hover:underline block">
-                      エントリー
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/application/exam" className="hover:underline block">
-                      試験概要
+                      エントリー・試験概要
                     </Link>
                   </li>
                   <li>

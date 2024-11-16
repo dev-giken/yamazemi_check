@@ -29,7 +29,7 @@ export default function Header() {
   }, []);
 
   const handleAccordionChange = (value: string | null) => {
-    setOpenAccordion(value  || "");
+    setOpenAccordion(value || "");
   };
 
   return (
@@ -132,14 +132,7 @@ export default function Header() {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link href="/application/entry" className="block w-[95%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
-                          エントリー
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link href="/application/exam" className="block w-[95%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
-                          試験概要
+                          エントリー・試験概要
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -195,9 +188,9 @@ export default function Header() {
         style={{ paddingTop: '80px', borderBottomLeftRadius: '20px' }}
       >
         <Accordion type="single" collapsible value={openAccordion ?? undefined} onValueChange={handleAccordionChange}>
-          <ul className="flex flex-col text-sm space-y-2"> {/* Change to space-y-2 */}
+          <ul className="flex flex-col text-sm space-y-2">
             <li>
-              <Link href="/news" onClick={toggleMenu} className="block p-2 text-left"> {/* Left-align text */}
+              <Link href="/news" onClick={toggleMenu} className="block p-2 text-left">
                 お知らせ
               </Link>
             </li>
@@ -255,12 +248,7 @@ export default function Header() {
                 <AccordionContent className="pl-4 space-y-2">
                   <li>
                     <Link href="/application/entry" onClick={toggleMenu} className="block p-2 text-left">
-                      エントリー
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/application/exam" onClick={toggleMenu} className="block p-2 text-left">
-                      試験概要
+                      エントリー・試験概要
                     </Link>
                   </li>
                   <li>
