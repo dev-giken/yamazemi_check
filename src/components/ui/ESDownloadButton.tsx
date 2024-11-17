@@ -73,6 +73,20 @@ const ESDownloadButton = () => {
     const handleProceedToDownload = () => {
         if (agreed) {
             setShowDownloadPage(true);
+            sendDownloadEvent(); // ダウンロードイベントを記録
+        }
+    };
+
+    // Google Analytics 4 でイベントを送信する関数
+    const sendDownloadEvent = () => {
+        if (typeof window.gtag === "function") {
+            window.gtag("event", "es_download", {
+                event_category: "Button",
+                event_label: "独自ESダウンロードボタン",
+                value: 1,
+            });
+        } else {
+            console.warn("Google Analytics が正しく設定されていません。");
         }
     };
 
