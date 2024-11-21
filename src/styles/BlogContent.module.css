@@ -50,7 +50,13 @@
 .articleContent h4 { font-size: 1.25rem; margin-top: 1.25rem; margin-bottom: 0.75rem; }
 
 .articleContent p { margin-bottom: 1.5rem; font-size: 14px; }
-.articleContent ol, .articleContent ul { margin-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.8; }
+.articleContent ol, .articleContent ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.8;
+  list-style-type: decimal; /* 番号を表示 */
+  list-style-position: outside; /* 番号の位置を内側に */
+}
 
 .articleContent table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 10px !important; }
 .articleContent th { background-color: #f5f5f5; text-align: left; padding: 2px; border-bottom: 2px solid #ccc; }
