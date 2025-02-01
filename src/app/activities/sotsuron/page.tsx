@@ -73,9 +73,6 @@ export default async function Home() {
                       })}
                   </div>
               </div>
-              <div className={styles.buttonContainer}>
-                <Button></Button>
-              </div>
           </div>
         </div>
       </main>
