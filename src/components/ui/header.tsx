@@ -104,7 +104,14 @@ export default function Header() {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link href="/activities/mitaron" className="block w-[95%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
-                          三田論
+                          三田祭論文
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link href="/activities/sotsuron" className="block w-[95%] hover:bg-gray-700 text-white p-2 rounded transition-colors duration-200">
+                          卒業論文
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -224,7 +231,12 @@ export default function Header() {
                   </li>
                   <li>
                     <Link href="/activities/mitaron" onClick={toggleMenu} className="block p-2 text-left">
-                      三田論
+                      三田祭論文
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/activities/sotsuron" onClick={toggleMenu} className="block p-2 text-left">
+                      卒業論文
                     </Link>
                   </li>
                   <li>
