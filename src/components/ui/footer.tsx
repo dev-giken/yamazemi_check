@@ -62,7 +62,12 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link href="/activities/mitaron" className="hover:underline block">
-                      三田論
+                      三田祭論文
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/activities/sotsuron" className="hover:underline block">
+                      卒業論文
                     </Link>
                   </li>
                   <li>
