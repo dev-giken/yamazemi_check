@@ -20,7 +20,7 @@ export default async function Home() {
     },
   });
 
-  // 必要なデータを整理する
+  // 必要なデータを整理するよ
   const mainItems = mainData.contents.map((item: MainContent) => ({
     id: item.id,
     title: item.title,
@@ -72,9 +72,6 @@ export default async function Home() {
                           );
                       })}
                   </div>
-              </div>
-              <div className={styles.buttonContainer}>
-                <Button></Button>
               </div>
           </div>
         </div>

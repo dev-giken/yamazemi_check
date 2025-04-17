@@ -19,6 +19,9 @@ export default async function Home() {
     },
   });
 
+  //デバグコード１　後で消す
+  //console.log('microCMSからの生データ:', JSON.stringify(mainData, null, 2));
+
   // 必要なデータを整理する
   const mainItems = mainData.contents.map((item: MainContent) => ({
     id: item.id,
@@ -52,11 +55,11 @@ export default async function Home() {
           <div className="p-8 text-xs">
             {mainItems
               .filter((item: MainContent) => {
-                console.log(item);
+                //console.log(item);
                 return item.title.includes('教授紹介') && item.category_1.includes('セカンドトップ') && item.category_2.includes('山ゼミとは');
               })
               .map((item: MainContent) => {
-                console.log("Mapping item:", item);
+                //console.log("Mapping item:", item);
                 return (
                   <div key={item.id}>
                     <h3 className="font-bold text-2xl">{item.title}</h3>
