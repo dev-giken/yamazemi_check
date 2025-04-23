@@ -20,7 +20,7 @@ const Hero = () => {
         spaceBetween={0} // 隙間をなくす
         slidesPerView={1}
         loop={true}
-        autoplay={{ delay: 6000, disableOnInteraction: false }}
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
         speed={2500}
         effect="slide"
       >
@@ -28,7 +28,7 @@ const Hero = () => {
         <SwiperSlide>
           <div style={{ position: 'relative', width: '100%', height: '100%' }}>
             <Image
-              src="/images/hero/both3rd4th.webp"
+              src="/images/hero/both18th19th_noDesk.webp"
               alt="Image 1"
               fill
               style={{ objectFit: 'cover', maxWidth: '100%' }} // 最大幅を設定し、拡大を制限
@@ -39,7 +39,7 @@ const Hero = () => {
         <SwiperSlide>
           <div style={{ position: 'relative', width: '100%', height: '100%' }}>
             <Image
-              src="/images/hero/only3rd.webp"
+              src="/images/hero/takaakiFlexing.webp"
               alt="Image 2"
               fill
               style={{ objectFit: 'cover', maxWidth: '100%' }}
@@ -50,8 +50,18 @@ const Hero = () => {
         <SwiperSlide>
           <div style={{ position: 'relative', width: '100%', height: '100%' }}>
             <Image
-              src="/images/hero/summer_camp.webp"
+              src="/images/hero/wideAngle_whiteRoom.webp"
               alt="Image 3"
+              fill
+              style={{ objectFit: 'cover', maxWidth: '100%' }}
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+            <Image
+              src="/images/hero/summer_camp.webp"
+              alt="Image 4"
               fill
               style={{ objectFit: 'cover', maxWidth: '100%' }}
             />
