@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { faXTwitter, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+//yamazemi-adminアカウントからpushしないとvercel自動ビルドされない
 const SocialIcons: FC = () => (
   <div className="flex space-x-4">
     <a href="https://x.com/yamazemi2025" target="_blank" rel="noopener noreferrer">
