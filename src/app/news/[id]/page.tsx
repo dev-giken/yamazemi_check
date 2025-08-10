@@ -6,6 +6,7 @@ import Link from 'next/link';
 import styles from '@/styles/ArticleContent.module.css';
 import { Breadcrumb, BreadcrumbList, BreadcrumbLink, BreadcrumbItem, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import React from 'react';
+import { createMetadata, stripHtml } from '@/lib/metadata';
 
 type NewsItem = {
   id: string;
@@ -14,6 +15,17 @@ type NewsItem = {
   category: string[];
   content: string;
 };
+
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  const data = await client.get({ endpoint: 'news', contentId: params.id });
+  return createMetadata({
+    title: data.title,
+    description: stripHtml(data.content).slice(0, 160),
+    image: data.thumbnail_img?.url,
+    url: `/news/${params.id}`,
+    ogType: 'article',
+  });
+}
 
 export default async function NewsDetail({ params }: { params: { id: string } }) {
   const { id } = params;

@@ -2,48 +2,12 @@ import { Inter } from "next/font/google";
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
 import "./globals.css";
-import Script from 'next/script'; // Scriptをインポート
+import Script from 'next/script';
+import { createMetadata } from '@/lib/metadata';
 
 const inter = Inter({ subsets: ["latin"] });
 
-export async function generateMetadata() {
-  const defaultUrl = "https://www.yamazemi.info";
-  const defaultImage = "/images/seminar_square_logo.webp";
-  const title = "山本勲研究会 | 公式ホームページ";
-  const description = "慶應義塾大学商学部設置 | 『計量経済学をツールに総合力を身につける』\n-山ゼミに関する全ての情報がここに！ゼミ員ブログも！";
-
-  return {
-    title,
-    description,
-    metadataBase: new URL(defaultUrl),
-    openGraph: {
-      title,
-      description,
-      url: defaultUrl,
-      images: [
-        {
-          url: defaultImage,
-          width: 500,
-          height: 500,
-          alt: "山本勲研究会",
-        },
-      ],
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      site: "@yamazemi2024",
-      title,
-      description,
-      images: [
-        {
-          url: defaultImage,
-          alt: "山本勲研究会",
-        },
-      ],
-    },
-  };
-}
+export const generateMetadata = () => createMetadata();
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

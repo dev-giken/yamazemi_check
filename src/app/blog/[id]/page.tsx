@@ -1,5 +1,6 @@
 // blog/[id]/page.tsx
 import { notFound } from 'next/navigation';
+import { createMetadata, stripHtml } from '@/lib/metadata';
 import { client } from '@/lib/client';
 import styles from '@/styles/BlogContent.module.css';
 import Link from 'next/link';
@@ -25,6 +26,20 @@ type BlogItem = {
 type Params = {
   params: { id: string };
 };
+
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  /* ===== microCMS から単一記事取得 ===== */
+  const data = await client.get({ endpoint: 'blog', contentId: params.id });
+
+  /* ===== OGP 生成 ===== */
+  return createMetadata({
+    title: data.title,
+    description: stripHtml(data.content).slice(0, 160),
+    image: data.thumbnail_img?.url,
+    url: `/blog/${params.id}`,
+    ogType: 'article',
+  });
+}
 
 export default async function BlogPostPage({ params }: Params) {
   const blogData = await client.get({
